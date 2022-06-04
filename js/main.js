@@ -7,7 +7,6 @@ const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
 // 1, Vue.jsで扱うデータを用意する
 const myData = {
-	verName: "ver0.6",
 	answerFlg: false,
 	quiz: null,
 	quizIndex: 0,
@@ -26,10 +25,26 @@ const app = Vue.createApp({
 	},
 	created(){
 		console.log("created!!");
-		this.loadQuiz();// クイズ全体をロード
+		this.init();// リセット
 	},
 	methods:{
+		init(){
+			// リセット
+			this.answerFlg = false;
+			this.quiz      = null;
+			this.quizIndex = 0;
+			this.quizScore = 0;
+			this.quizes    = [];
+			this.piyoImg   = "./images/piyo_quiz.png";
+			this.piyoMsg   = "クイズに答えられるかな!?";
+			this.cntOK     = 0;
+			this.cntNG     = 0;
+		},
 		loadQuiz(){
+			// クイズ全体を読み込む
+			this.piyoImg = "./images/piyo_quiz.png";
+			this.piyoMsg = "ちょっと待ってね";
+
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
 				console.log(arr);
@@ -57,7 +72,7 @@ const app = Vue.createApp({
 			// 終了判定
 			console.log("loadQuiz:", this.quizIndex);
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
-			this.piyoMsg = "";
+			this.piyoMsg = "あと" + (this.quizes.length - this.quizIndex) + "問だよ";
 			if(this.quizes.length-1 < this.quizIndex){
 				console.log("Game Over!!");
 				return;
@@ -98,13 +113,7 @@ const app = Vue.createApp({
 		clickReset(){
 			// リセット
 			console.log("clickReset");
-			this.answerFlg = false;// 答えを非表示に
-			this.quiz      = null;// クイズリセット
-			this.quizIndex = 0;// 最初の問題へ
-			this.quizScore = 0;// スコアリセット
-			this.cntOK     = 0;// カウントリセット
-			this.cntNG     = 0;
-			this.loadQuiz();// クイズ全体をロード
+			this.init();// リセット
 		}
 	}
 });

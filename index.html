@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-title" content="Demo">
 	<link rel="apple-touch-icon" href="./images/icon152x152.png">
 	<!-- PWA for Android -->
-	<link rel="manifest" href="./manifest.json">
+	<link rel="manifest" href="./js/manifest.json">
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="./images/favicon.ico">
 	<!-- Stylesheet -->
@@ -20,8 +20,21 @@
 </head>
 <body>
 	<div id="app">
-		<div id="l-title">ぴよクイズ_{{ verName }}</div>
-		<div v-if="quiz">
+		<div v-if="!quiz">
+			<!-- タイトル画面(ここから) -->
+			<div id="l-title">ぴよクイズ</div>
+			<div id="l-piyo-logo">
+				<img v-bind:src="piyoImg">
+			</div>
+			<div id="l-piyo-msg">
+				{{ piyoMsg }}
+			</div>
+			<div id="l-start">
+				<button v-on:click="loadQuiz"/>クイズ開始</button>
+			</div>
+			<!-- タイトル画面(ここまで) -->
+		</div>
+		<div v-else>
 			<div v-if="quizIndex < quizes.length">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
@@ -95,19 +108,29 @@
 					</div>
 				</div>
 				<div id="l-reset">
-					<button v-on:click="clickReset"/>再挑戦する</button>
+					<button v-on:click="clickReset"/>タイトルに戻る</button>
 				</div>
 				<!-- 結果画面(ここまで) -->
 			</div>
 		</div>
-		<div v-else>
-				クイズを読み込んでいます...
-		</div>
-		<div id="l-powered">
-			クイズ提供:<a href="https://www.mag2.com/m/0000001414" target="_blank">宿題メール</a>
-		</div>
+	</div>
+	<div id="ad_display_area"></div>
+	<div id="l-powered">
+		クイズ提供:<a href="https://www.mag2.com/m/0000001414" target="_blank">宿題メール</a>
 	</div>
 	<!-- JavaScript -->
+	<script>
+		const imobile_spot_info = {
+			pid: "xxxxxx",
+			asid: "xxxxxx",
+			display_area: [{
+				num: 1,
+				target_element: "#ad_display_area",
+				template: "<a href='{{click_url}}'><img class='radius' src='{{image_url}}'></a>"
+			}]
+		};
+	</script>
+	<script src="//spdeliver.i-mobile.co.jp/script/adsnativepc.js" defer></script>
 	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js" defer></script>
 	<script src="//unpkg.com/vue@next" defer></script>
 	<script src="./js/utility.js" defer></script>
