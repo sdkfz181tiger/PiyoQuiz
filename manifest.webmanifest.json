@@ -1,0 +1,21 @@
+{
+	"name":"ぴよクイズ",
+	"short_name":"ぴよクイズ",
+	"icons": [{
+		"src": "images/icon152x152.png",
+		"sizes":"152x152",
+		"type": "image/png"
+	},{
+		"src": "images/icon192x192.png",
+		"sizes":"192x192",
+		"type": "image/png"
+	},{
+		"src": "images/icon512x512.png",
+		"sizes":"512x512",
+		"type": "image/png"
+	}],
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "khaki",
+	"theme_color": "orange"
+}

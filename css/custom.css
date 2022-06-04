@@ -1,0 +1,128 @@
+/* CSS */
+
+html, body, #app{
+	width: 100%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+body{
+	font-feature-settings: "palt";
+	font-family: "M PLUS 1p"; line-height: 1.5;
+	text-align: center;
+	background-color: khaki;
+}
+
+#l-title{
+	width: 90%; height: auto;
+	margin: 10px auto 10px auto; padding: 5px;
+	font-size: 1.2em; font-weight: bold;
+	border: 0; border-radius: 14px;
+	background: chocolate; color: white;
+}
+
+#l-status{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+	font-size: 1.0em; font-weight: normal;
+}
+
+#l-quiz{
+	width: 90%; height: auto;
+	margin: 10px auto 20px auto; padding: 10px;
+	font-size: 1.2em; font-weight: normal; text-align: left;
+	border: 0; border-radius: 14px;
+	background: lightyellow; color: black;
+}
+
+#l-btns{
+	width: auto; height: auto;
+}
+
+#l-piyo-img{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+}
+
+#l-piyo-img img{
+	width: 100px; height: auto;
+}
+
+#l-piyo-msg{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+	font-size: 1.0em; font-weight: normal;
+}
+
+#l-detail{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+	font-size: 1.0em; font-weight: normal;
+}
+
+#l-next{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+}
+
+#l-score{
+	width: 70%; height: auto;
+	margin: 10px auto 10px auto; padding: 10px;
+	font-size: 3.0em; font-weight: normal;
+	border: 0; border-radius: 14px;
+	background: lightyellow; color: black;
+}
+
+#l-reset{
+	width: auto; height: auto;
+	margin: 10px auto 5px auto;
+}
+
+#l-powered{
+	width: 90%; height: auto;
+	margin: 2px; padding: 0px;
+	position: absolute; bottom: 0px;
+	font-size: 0.8em; font-weight: normal;
+	text-align: center;
+}
+
+/* Buttons */
+button{
+	min-width: 70%; height: auto;
+	margin: 5px; padding: 16px;
+	appearance: none;
+	border: 0; border-radius: 8px;
+	background: darkorange; color: white;
+	font-size: 1.2em; font-weight: normal;
+}
+
+button:hover{
+	background: orange;
+}
+ 
+button:focus{
+	outline: none; box-shadow: 0 0 0 4px lightblue;
+}
+
+.red{
+	background: firebrick;
+}
+
+.red:hover{
+	background: darkred;
+}
+ 
+.red:focus{
+	outline: none; box-shadow: 0 0 0 4px lightsalmon;
+}
+
+.gray{
+	background: gray;
+}
+
+.gray:hover{
+	background: slategray;
+}
+ 
+.gray:focus{
+	outline: none; box-shadow: 0 0 0 4px lightgray;
+}

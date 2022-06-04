@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- PWA for iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Demo">
+	<link rel="apple-touch-icon" href="./images/icon152x152.png">
+	<!-- PWA for Android -->
+	<link rel="manifest" href="./manifest.webmanifest">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./css/custom.css">
+	<title>ぴよクイズ</title>
+</head>
+<body>
+	<div id="app">
+		<div id="l-title">ぴよクイズ_{{ verName }}</div>
+		<div v-if="quiz">
+			<div v-if="quizIndex < quizes.length">
+				<!-- クイズ画面(ここから) -->
+				<div id="l-status">
+					問題:{{ quizIndex+1 }} / {{ quizes.length }}
+				</div>
+				<div id="l-quiz">
+					{{ quiz.msg }}
+				</div>
+				<div id="l-btns">
+					<div v-for="btn of quiz.btns">
+						<div v-if="answerFlg">
+							<div v-if="quiz.answer==btn">
+								<button class="red">{{ btn }}</button>
+							</div>
+							<div v-else>
+								<button class="gray">{{ btn }}</button>
+							</div>
+						</div>
+						<div v-else>
+							<button v-on:click="clickAnswer(btn)">{{ btn }}</button>
+						</div>
+					</div>
+				</div>
+				<div id="l-piyo-img">
+					<img v-bind:src="piyoImg">
+				</div>
+				<div id="l-piyo-msg">
+					{{ piyoMsg }}
+				</div>
+				<div v-if="answerFlg">
+					<!-- 正解と解説(ここから) -->
+					<div id="l-detail">
+						{{ quiz.detail }}
+					</div>
+					<div id="l-next">
+						<div v-if="quizIndex < quizes.length-1">
+							<button v-on:click="clickNext">次の問題へ</button>
+						</div>
+						<div v-else>
+							<button v-on:click="clickNext">結果画面へ</button>
+						</div>
+					</div>
+					<!-- 正解と解説(ここまで) -->
+				</div>
+				<!-- クイズ画面(ここまで) -->
+			</div>
+			<div v-else>
+				<!-- 結果画面(ここから) -->
+				<div id="l-status">
+					あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
+				</div>
+				<div id="l-score">
+					得点:{{ quizScore }}点
+				</div>
+				<div id="l-piyo-img">
+					<img v-bind:src="piyoImg">
+				</div>
+				<div id="l-piyo-msg">
+					{{ quizScore }}点ぴよか。<br/>
+					<div v-if="90 < quizScore">
+						お見事、免許皆伝ぴよ!!
+					</div>
+					<div v-else-if="60 < quizScore">
+						この程度で満足などしておらんぴよな!?
+					</div>
+					<div v-else-if="30 < quizScore">
+						まだまだ詰めが甘いぴよ!!
+					</div>
+					<div v-else>
+						ふはっ、臍で茶を沸かすぴよ!!
+					</div>
+				</div>
+				<div id="l-reset">
+					<button v-on:click="clickReset"/>再挑戦する</button>
+				</div>
+				<!-- 結果画面(ここまで) -->
+			</div>
+		</div>
+		<div v-else>
+				クイズを読み込んでいます...
+		</div>
+		<div id="l-powered">
+			クイズ提供:<a href="https://www.mag2.com/m/0000001414" target="_blank">宿題メール</a>
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js" defer></script>
+	<script src="//unpkg.com/vue@next" defer></script>
+	<script src="./js/utility.js" defer></script>
+	<script src="./js/main.js" defer></script>
+</body>
+</html>
