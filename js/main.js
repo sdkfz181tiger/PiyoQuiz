@@ -44,7 +44,6 @@ const app = Vue.createApp({
 			// クイズ全体を読み込む
 			this.piyoImg = "./images/piyo_quiz.png";
 			this.piyoMsg = "ちょっと待ってね";
-
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
 				console.log(arr);
@@ -87,6 +86,11 @@ const app = Vue.createApp({
 				this.quiz.btns[i] = tmp;
 			}
 		},
+		clickStart(){
+			// クイズ全体を読み込む
+			console.log("clickStart");
+			this.loadQuiz();
+		}
 		clickAnswer(btn){
 			// 答えをクリック
 			console.log("clickAnswer");
