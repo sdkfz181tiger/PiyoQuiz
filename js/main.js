@@ -42,7 +42,7 @@ const app = Vue.createApp({
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
-			this.piyoImg = "./images/piyo_quiz.png";
+			this.piyoImg = "./images/piyo_pc.png";
 			this.piyoMsg = "ちょっと待ってね";
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
@@ -70,13 +70,14 @@ const app = Vue.createApp({
 		readQuiz(){
 			// 終了判定
 			console.log("loadQuiz:", this.quizIndex);
-			this.piyoImg = "./images/piyo_quiz.png";// Piyo
-			this.piyoMsg = "あと" + (this.quizes.length - this.quizIndex) + "問だよ";
 			if(this.quizes.length-1 < this.quizIndex){
 				console.log("Game Over!!");
+				this.piyoImg = "./images/piyo_pc.png";// Piyo
 				return;
 			}
 			// 次のクイズを読み込む
+			this.piyoImg = "./images/piyo_quiz.png";// Piyo
+			this.piyoMsg = "あと" + (this.quizes.length - this.quizIndex) + "問だよ";
 			this.quiz = this.quizes[this.quizIndex];
 			// ボタンをシャッフル
 			for(let i=this.quiz.btns.length-1; 0<=i; i--){

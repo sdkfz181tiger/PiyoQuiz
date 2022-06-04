@@ -52,13 +52,22 @@ body{
 	width: 320px; height: auto;
 }
 
-#l-piyo-img{
+#l-piyo-quiz{
 	width: auto; height: auto;
 	margin: 10px auto 10px auto;
 }
 
-#l-piyo-img img{
+#l-piyo-quiz img{
 	width: 100px; height: auto;
+}
+
+#l-piyo-result{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+}
+
+#l-piyo-result img{
+	width: 320px; height: auto;
 }
 
 #l-piyo-msg{
