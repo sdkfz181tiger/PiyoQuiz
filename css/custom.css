@@ -8,8 +8,7 @@ html, body, #app{
 body{
 	font-feature-settings: "palt";
 	font-family: "M PLUS 1p"; line-height: 1.5; text-align: center;
-	background: khaki;
-	background-image: url("../images/background.png");
+	background: gold; background-image: url("../images/background.png");
 }
 
 #app{
