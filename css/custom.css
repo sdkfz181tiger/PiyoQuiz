@@ -113,7 +113,7 @@ body{
 
 /* Buttons */
 button{
-	min-width: 50%; height: auto;
+	min-width: 75%; height: auto;
 	margin: 8px; padding: 16px;
 	appearance: none;
 	font-size: 1.2em; font-weight: bold;
