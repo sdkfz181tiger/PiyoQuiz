@@ -90,7 +90,7 @@ const app = Vue.createApp({
 			// クイズ全体を読み込む
 			console.log("clickStart");
 			this.loadQuiz();
-		}
+		},
 		clickAnswer(btn){
 			// 答えをクリック
 			console.log("clickAnswer");
