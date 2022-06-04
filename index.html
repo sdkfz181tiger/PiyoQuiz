@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="!quiz">
+		<div v-if="!quiz" class="container">
 			<!-- タイトル画面(ここから) -->
 			<div id="l-title">ぴよクイズ</div>
 			<div id="l-piyo-logo">
@@ -34,7 +34,7 @@
 			</div>
 			<!-- タイトル画面(ここまで) -->
 		</div>
-		<div v-else>
+		<div v-else class="container">
 			<div v-if="quizIndex < quizes.length">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
@@ -61,23 +61,22 @@
 				<div id="l-piyo-quiz">
 					<img v-bind:src="piyoImg">
 				</div>
-				<div id="l-piyo-msg">
+				<div id="l-piyo-msg" v-if="!answerFlg">
 					{{ piyoMsg }}
 				</div>
-				<div v-if="answerFlg">
-					<!-- 正解と解説(ここから) -->
-					<div id="l-detail">
-						{{ quiz.detail }}
+				<div v-else>
+					{{ quiz.detail }}
+				</div>
+				<div id="l-next" v-if="answerFlg">
+					<div v-if="quizIndex < quizes.length-1">
+						<button v-on:click="clickNext">次の問題へ</button>
 					</div>
-					<div id="l-next">
-						<div v-if="quizIndex < quizes.length-1">
-							<button v-on:click="clickNext">次の問題へ</button>
-						</div>
-						<div v-else>
-							<button v-on:click="clickNext">結果画面へ</button>
-						</div>
+					<div v-else>
+						<button v-on:click="clickNext">結果画面へ</button>
 					</div>
-					<!-- 正解と解説(ここまで) -->
+				</div>
+				<div v-else id="l-next">
+
 				</div>
 				<!-- クイズ画面(ここまで) -->
 			</div>
@@ -98,13 +97,13 @@
 						お見事、免許皆伝ぴよ!!
 					</div>
 					<div v-else-if="60 < quizScore">
-						この程度で満足などしておらんぴよな!?
+						コメントに困る中途半端な点数ぴよー。。。
 					</div>
 					<div v-else-if="30 < quizScore">
-						まだまだ詰めが甘いぴよ!!
+						ぷぷっ、まだまだ詰めが甘いぴよ!!
 					</div>
 					<div v-else>
-						ふはっ、臍で茶を沸かすぴよ!!
+						ふはっ、顔を洗って出直すぴよ!!
 					</div>
 				</div>
 				<div id="l-reset">
