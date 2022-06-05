@@ -1,5 +1,8 @@
 console.log("utility.js!!");
 
+//==========
+// SpreadSheet
+
 function loadSpreadSheet(path, onLoad, onError){
 	// Axios
 	const option = {responseType: "blob"};
@@ -26,6 +29,9 @@ function csv2json(csv){
 	}
 	return json;
 }
+
+//==========
+// LocalStorage
 
 function initStorage(){
 	console.log("initStorage");
