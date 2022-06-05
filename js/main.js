@@ -7,15 +7,15 @@ const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
 // 1, Vue.jsで扱うデータを用意する
 const myData = {
-	answerFlg: false,
-	quiz: null,
-	quizIndex: 0,
-	quizScore: 0,
-	quizes: [],
-	piyoImg: "",
-	piyoMsg: "",
-	cntOK: 0,
-	cntNG: 0
+	answerFlg: null,
+	quiz:      null,
+	quizIndex: null,
+	quizScore: null,
+	quizes:    null,
+	piyoImg:   null,
+	piyoMsg:   null,
+	cntOK:     null,
+	cntNG:     null
 }
 
 // 2, Vue.jsの準備をする
@@ -25,6 +25,7 @@ const app = Vue.createApp({
 	},
 	created(){
 		console.log("created!!");
+		initStorage();// ストレージ
 		this.init();// リセット
 	},
 	methods:{
@@ -34,7 +35,7 @@ const app = Vue.createApp({
 			this.quiz      = null;
 			this.quizIndex = 0;
 			this.quizScore = 0;
-			this.quizes    = [];
+			this.quizes    = {};
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
 			this.cntOK     = 0;
@@ -46,7 +47,6 @@ const app = Vue.createApp({
 			this.piyoMsg = "ちょっと待ってね";
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
-				console.log(arr);
 				this.quizes = arr;// JSONファイルからロード
 				for(let quiz of this.quizes) {
 					quiz.answer = quiz.btnA;// 答えを確定
@@ -54,6 +54,7 @@ const app = Vue.createApp({
 				}
 				this.shuffleQuiz();// クイズをシャッフル
 				this.readQuiz();// クイズを1つ読み込む
+				this.loadReport();// Report
 			}, err=>{
 				console.log(err);
 			});
@@ -73,6 +74,8 @@ const app = Vue.createApp({
 			if(this.quizes.length-1 < this.quizIndex){
 				console.log("Game Over!!");
 				this.piyoImg = "./images/piyo_pc.png";// Piyo
+				this.loadReport();// Report
+				console.log(this.quizes);
 				return;
 			}
 			// 次のクイズを読み込む
@@ -86,6 +89,14 @@ const app = Vue.createApp({
 				this.quiz.btns[rdm] = this.quiz.btns[i];
 				this.quiz.btns[i] = tmp;
 			}
+		},
+		loadReport(){
+			if(this.quizes.length <= 0) return null;
+			loadStorage(this.quizes);// Load
+		},
+		saveReport(flg){
+			if(!this.quiz) return;
+			saveStorage(this.quiz.key, flg);// Save
 		},
 		clickStart(){
 			// クイズ全体を読み込む
@@ -101,10 +112,12 @@ const app = Vue.createApp({
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
 				this.cntOK++;
+				this.saveReport(true);// OK
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
 				this.cntNG++;
+				this.saveReport(false);// NG
 			}
 			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア
 		},
