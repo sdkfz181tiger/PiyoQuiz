@@ -43,7 +43,7 @@ const app = Vue.createApp({
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
-			this.piyoImg = "./images/piyo_pc.png";
+			this.piyoImg = "./images/piyo_pc_wink.png";
 			this.piyoMsg = "ちょっと待ってね";
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
@@ -73,7 +73,7 @@ const app = Vue.createApp({
 			console.log("loadQuiz:", this.quizIndex);
 			if(this.quizes.length-1 < this.quizIndex){
 				console.log("Game Over!!");
-				this.piyoImg = "./images/piyo_pc.png";// Piyo
+				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
 				this.loadReport();// Report
 				console.log(this.quizes);
 				return;

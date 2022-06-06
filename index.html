@@ -68,7 +68,7 @@
 					{{ piyoMsg }}
 				</div>
 				<div v-else>
-					{{ quiz.detail }}
+					{{ piyoMsg }} {{ quiz.detail }}
 				</div>
 				<div id="l-next" v-if="answerFlg">
 					<div v-if="quizIndex < quizes.length-1">
