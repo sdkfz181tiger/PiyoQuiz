@@ -123,7 +123,7 @@ button{
 button:hover{
 	background: orange;
 }
- 
+
 button:focus{
 	outline: none; box-shadow: 0 0 0 4px lightblue;
 }
@@ -135,7 +135,7 @@ button:focus{
 .red:hover{
 	background: darkred;
 }
- 
+
 .red:focus{
 	outline: none; box-shadow: 0 0 0 4px lightsalmon;
 }
@@ -147,7 +147,7 @@ button:focus{
 .gray:hover{
 	background: slategray;
 }
- 
+
 .gray:focus{
 	outline: none; box-shadow: 0 0 0 4px lightgray;
 }
