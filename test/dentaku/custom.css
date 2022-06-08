@@ -27,13 +27,13 @@ body{
 }
 
 #l-display{
-	width: 90%; min-height: 80px;
+	width: 90%; min-height: 80px; max-height: 80px;
 	margin: 20px auto 20px auto;
 	padding: 10px;
 	background: bisque; color: black;
 	font-size: 4.0em; font-weight: bold;
-	text-align: right; text-overflow: ellipsis;
-	overflow: hidden;  overflow-wrap: normal;
+	text-align: right; white-space: nowrap;
+	overflow: hidden; text-overflow: ellipsis;
 }
 
 table{
