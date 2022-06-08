@@ -32,8 +32,8 @@ body{
 	padding: 10px;
 	background: bisque; color: black;
 	font-size: 4.0em; font-weight: bold;
-	text-align: right;
-	overflow: hidden; text-overflow: ellipsis;
+	text-align: right; text-overflow: ellipsis;
+	overflow: hidden;  overflow-wrap: normal;
 }
 
 table{
