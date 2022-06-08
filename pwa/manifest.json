@@ -2,15 +2,15 @@
 	"name":"ぴよクイズ",
 	"short_name":"ぴよクイズ",
 	"icons": [{
-		"src": "../images/icons/icon152x152.png",
+		"src": "../images/pwa/icon152x152.png",
 		"sizes":"152x152",
 		"type": "image/png"
 	},{
-		"src": "../images/icons/icon192x192.png",
+		"src": "../images/pwa/icon192x192.png",
 		"sizes":"192x192",
 		"type": "image/png"
 	},{
-		"src": "../images/icons/icon512x512.png",
+		"src": "../images/pwa/icon512x512.png",
 		"sizes":"512x512",
 		"type": "image/png"
 	}],
