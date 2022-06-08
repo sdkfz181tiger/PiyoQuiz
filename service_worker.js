@@ -1,7 +1,7 @@
 //==========
 // ServiceWorker
 
-const CACHE_VERSION = "cache_0.2";
+const CACHE_VERSION = "cache_1.0.0";
 const CACHE_FILES = [
 	
 ];
