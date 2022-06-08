@@ -17,5 +17,6 @@
 	"start_url": "../index.html",
 	"display": "standalone",
 	"background_color": "khaki",
-	"theme_color": "orange"
+	"theme_color": "orange",
+	"orientation": "landscape" // 縦:portrait / 横:landscape
 }
