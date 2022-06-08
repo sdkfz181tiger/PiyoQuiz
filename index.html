@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="!quiz" class="container">
+		<div v-if="!quiz">
 			<!-- タイトル画面(ここから) -->
 			<div id="l-title">ぴよクイズ</div>
 			<div id="l-piyo-logo">
@@ -38,7 +38,7 @@
 			</div>
 			<!-- タイトル画面(ここまで) -->
 		</div>
-		<div v-else class="container">
+		<div v-else>
 			<div v-if="quizIndex < quizes.length">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">

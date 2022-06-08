@@ -7,16 +7,13 @@ html, body, #app{
 
 body{
 	font-feature-settings: "palt";
-	font-family: "M PLUS 1p"; line-height: 1.5; text-align: center;
-	background: moccasin; background-image: url("../images/background.png");
+	font-family: "M PLUS 1p"; line-height: 1.5; 
+	text-align: center; background: moccasin; 
+	background-image: url("../images/background.png");
+	display: flex; justify-content: center; align-items: center;
 }
 
 #app{
-	display: flex; justify-content: center;
-	align-items: center;
-}
-
-.container{
 	width: 90%; height: auto;
 }
 
