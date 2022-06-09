@@ -3,8 +3,6 @@ console.log("main.js!!");
 // ServiceWorker(If you needed...)
 navigator.serviceWorker.register("./pwa/service_worker.js");
 
-const ORIENTATION = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
-
 const SS_GOOGLE = "https://docs.google.com/spreadsheets/d/";
 const SS_ID     = "1CzccPnNKqIEgTPyvq83w28H0t5ycmuhe_EBarAdy4xY";
 const SS_CSV    = "/export?format=csv";
@@ -20,8 +18,7 @@ const myData = {
 	piyoImg:   null,
 	piyoMsg:   null,
 	cntOK:     null,
-	cntNG:     null,
-	testMsg:   ORIENTATION
+	cntNG:     null
 }
 
 // 2, Vue.jsの準備をする
