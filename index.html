@@ -39,7 +39,7 @@
 			<!-- タイトル画面(ここまで) -->
 		</div>
 		<div v-else>
-			<div v-if="quizIndex < quizes.length">
+			<div v-if="quizIndex < quizMax">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
 					Key:{{ quiz.key }}_問題:{{ quizIndex+1 }} / {{ quizes.length }}_ok: {{ quiz.ok }} / ng: {{ quiz.ng }}
@@ -72,7 +72,7 @@
 					{{ piyoMsg }} {{ quiz.detail }}
 				</div>
 				<div id="l-next" v-if="answerFlg">
-					<div v-if="quizIndex < quizes.length-1">
+					<div v-if="quizIndex < quizMax-1">
 						<button v-on:click="clickNext">次の問題へ</button>
 					</div>
 					<div v-else>
@@ -95,17 +95,17 @@
 				</div>
 				<div id="l-piyo-msg">
 					{{ quizScore }}点ぴよか。<br/>
-					<div v-if="90 < quizScore">
-						お見事、免許皆伝ぴよ!!
+					<div v-if="80 <= quizScore">
+						免許皆伝ぴよ!!
 					</div>
-					<div v-else-if="60 < quizScore">
-						コメントに困る中途半端な点数ぴよー。。。
+					<div v-else-if="60 <= quizScore">
+						結構当たったぴよ!!
 					</div>
-					<div v-else-if="30 < quizScore">
-						ぷぷっ、まだまだ詰めが甘いぴよ!!
+					<div v-else-if="40 <= quizScore">
+						まずまず当たったぴよ!!
 					</div>
 					<div v-else>
-						ふはっ、顔を洗って出直すぴよ!!
+						次は頑張るぴよ!!
 					</div>
 				</div>
 				<div id="l-reset">

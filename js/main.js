@@ -14,6 +14,7 @@ const myData = {
 	quiz:      null,
 	quizIndex: null,
 	quizScore: null,
+	quizMax:   null,
 	quizes:    null,
 	piyoImg:   null,
 	piyoMsg:   null,
@@ -38,6 +39,7 @@ const app = Vue.createApp({
 			this.quiz      = null;
 			this.quizIndex = 0;
 			this.quizScore = 0;
+			this.quizMax   = 5;
 			this.quizes    = {};
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
@@ -73,17 +75,10 @@ const app = Vue.createApp({
 		},
 		readQuiz(){
 			// 終了判定
-			console.log("loadQuiz:", this.quizIndex);
-			if(this.quizes.length-1 < this.quizIndex){
-				console.log("Game Over!!");
-				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
-				this.loadReport();// Report
-				console.log(this.quizes);
-				return;
-			}
+			console.log("readQuiz:", this.quizIndex);
 			// 次のクイズを読み込む
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
-			this.piyoMsg = "あと" + (this.quizes.length - this.quizIndex) + "問だよ";
+			this.piyoMsg = "あと" + (this.quizMax - this.quizIndex) + "問だよ";
 			this.quiz = this.quizes[this.quizIndex];
 			// ボタンをシャッフル
 			for(let i=this.quiz.btns.length-1; 0<=i; i--){
@@ -129,7 +124,12 @@ const app = Vue.createApp({
 			console.log("clickNext");
 			this.answerFlg = false;// 答えを非表示に
 			this.quizIndex++;// 次の問題へ
-			this.readQuiz();// クイズを1つ読み込む
+			if(this.quizIndex < this.quizMax){
+				this.readQuiz();// クイズを1つ読み込む
+			}else{
+				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
+				this.loadReport();// Report
+			}
 		},
 		clickReset(){
 			// リセット
