@@ -53,13 +53,13 @@ body{
 	width: 50%; height: auto;
 }
 
-#l-btns button{
-	min-width: 95%; height: auto;
-	margin: 4px; padding: 48px 0px;
-}
-
 #l-btns div div{
 	width: auto; height: auto;
+}
+
+#l-btns button{
+	min-width: 95%; min-height: 120px;
+	margin: 4px; padding: 5px;
 }
 
 #l-piyo-logo{
