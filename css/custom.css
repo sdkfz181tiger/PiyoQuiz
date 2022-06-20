@@ -129,7 +129,7 @@ button{
 	font-size: 1.2em; font-weight: bold;
 	border: 0; border-radius: 8px;
 	background: darkorange; color: white;
-	white-space: normal; word-wrap:break-word;
+	white-space: pre-line; word-wrap:break-word;
 }
 
 button:hover{

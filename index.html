@@ -51,14 +51,14 @@
 					<div v-for="btn of quiz.btns">
 						<div v-if="answerFlg">
 							<div v-if="quiz.answer==btn">
-								<button class="red">{{ btn }}</button>
+								<button class="red" v-html="btn"></button>
 							</div>
 							<div v-else>
-								<button class="gray">{{ btn }}</button>
+								<button class="gray" v-html="btn"></button>
 							</div>
 						</div>
 						<div v-else>
-							<button v-on:click="clickAnswer(btn)">{{ btn }}</button>
+							<button v-on:click="clickAnswer(btn)" v-html="btn"></button>
 						</div>
 					</div>
 				</div>
