@@ -92,7 +92,7 @@ body{
 #l-piyo-msg{
 	width: auto; height: auto;
 	margin: 10px auto 10px auto;
-	font-size: 1.0em; font-weight: normal;
+	font-size: 0.8em; font-weight: normal;
 }
 
 #l-next{
@@ -135,16 +135,12 @@ button:hover{
 	background: orange;
 }
 
-button:focus{
-	outline: none; box-shadow: 0 0 0 4px lightblue;
-}
-
 .red{
-	background: firebrick;
+	background: darkred;
 }
 
 .red:hover{
-	background: darkred;
+	background: crimson;
 }
 
 .blue{

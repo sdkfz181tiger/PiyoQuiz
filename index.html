@@ -51,7 +51,7 @@
 					<div v-for="btn of quiz.btns">
 						<div v-if="answerFlg">
 							<div v-if="quiz.answer==btn">
-								<button class="blue">{{ btn }}</button>
+								<button class="red">{{ btn }}</button>
 							</div>
 							<div v-else>
 								<button class="gray">{{ btn }}</button>
@@ -68,7 +68,7 @@
 				<div id="l-piyo-msg" v-if="!answerFlg">
 					{{ piyoMsg }}
 				</div>
-				<div v-else>
+				<div id="l-piyo-msg" v-else>
 					{{ piyoMsg }} {{ quiz.detail }}
 				</div>
 				<div id="l-next" v-if="answerFlg">
