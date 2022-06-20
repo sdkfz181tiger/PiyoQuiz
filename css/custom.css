@@ -37,7 +37,7 @@ body{
 }
 
 #l-quiz{
-	width: auto; min-height: 60px;
+	width: auto; min-height: 120px;
 	margin: 10px auto 20px auto; padding: 10px;
 	font-size: 1.2em; font-weight: normal; text-align: left;
 	border: 0; border-radius: 14px;
@@ -45,6 +45,20 @@ body{
 }
 
 #l-btns{
+	width: auto; height: auto;
+	display: flex;　justify-content: center;
+}
+
+#l-btns div{
+	width: 50%; height: auto;
+}
+
+#l-btns button{
+	min-width: 95%; height: auto;
+	margin: 4px; padding: 48px 0px;
+}
+
+#l-btns div div{
 	width: auto; height: auto;
 }
 
@@ -109,11 +123,11 @@ body{
 
 /* Buttons */
 button{
-	min-width: 75%; height: auto;
-	margin: 4px; padding: 12px;
+	min-width: 50%; height: auto;
+	margin: 4px; padding: 12px 0px;
 	appearance: none;
 	font-size: 1.2em; font-weight: bold;
-	border: 0; border-radius: 32px;
+	border: 0; border-radius: 8px;
 	background: darkorange; color: white;
 }
 

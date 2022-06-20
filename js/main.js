@@ -80,12 +80,18 @@ const app = Vue.createApp({
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
 			this.piyoMsg = "あと" + (this.quizMax - this.quizIndex) + "問だよ";
 			this.quiz = this.quizes[this.quizIndex];
-			// ボタンをシャッフル
-			for(let i=this.quiz.btns.length-1; 0<=i; i--){
-				const rdm = Math.floor(Math.random() * i);
-				const tmp = this.quiz.btns[rdm];
-				this.quiz.btns[rdm] = this.quiz.btns[i];
-				this.quiz.btns[i] = tmp;
+			// 2択にする
+			const btns = this.quiz.btns;
+			const index = Math.floor(Math.random()*(btns.length-1)) + 1;
+			for(let i=btns.length-1; 0<i; i--){
+				if(i == index) continue;
+				btns.splice(i, 1);
+			}
+			// シャッフル
+			if(Math.random() < 0.5){
+				const tmp = btns[0];
+				btns[0] = btns[1];
+				btns[1] = tmp;
 			}
 		},
 		loadReport(){
