@@ -92,7 +92,7 @@ body{
 #l-piyo-msg{
 	width: auto; height: auto;
 	margin: 10px auto 10px auto;
-	font-size: 0.8em; font-weight: normal;
+	font-size: 1.0em; font-weight: normal;
 }
 
 #l-next{
@@ -117,7 +117,7 @@ body{
 	width: 100%; height: auto;
 	margin: 0px; padding: 5px 0px;
 	position: fixed; bottom: 0px;
-	font-size: 0.8em; font-weight: normal; text-align: center;
+	font-size: 1.0em; font-weight: normal; text-align: center;
 	background: orange; color: black;
 }
 

@@ -66,10 +66,10 @@
 					<img v-bind:src="piyoImg">
 				</div>
 				<div id="l-piyo-msg" v-if="!answerFlg">
-					{{ piyoMsg }}
+					{{ piyoMsg }}<br/>頑張ってね!!
 				</div>
 				<div id="l-piyo-msg" v-else>
-					{{ piyoMsg }} {{ quiz.detail }}
+					{{ piyoMsg }}<br/>{{ quiz.detail }}
 				</div>
 				<div id="l-next" v-if="answerFlg">
 					<div v-if="quizIndex < quizMax-1">
