@@ -147,18 +147,18 @@ button:focus{
 	background: darkred;
 }
 
-.red:focus{
-	outline: none; box-shadow: 0 0 0 4px lightsalmon;
+.blue{
+	background: cornflowerblue;
+}
+
+.blue:hover{
+	background: darkturquoise;
 }
 
 .gray{
-	background: gray;
+	background: silver;
 }
 
 .gray:hover{
-	background: slategray;
-}
-
-.gray:focus{
-	outline: none; box-shadow: 0 0 0 4px lightgray;
+	background: silver;
 }
