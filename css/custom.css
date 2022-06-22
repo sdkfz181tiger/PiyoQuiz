@@ -31,9 +31,22 @@ body{
 }
 
 #l-status{
-	width: auto; height: auto;
+	width: 100%; height: auto;
 	margin: 0px auto 0px auto;
 	font-size: 1.0em; font-weight: normal;
+	display: flex;
+}
+
+#l-status #left{
+	width: 30%; height: auto;
+	margin: 0px; padding: 0px 5px;
+	text-align: left;
+}
+
+#l-status #right{
+	width: 70%; height: auto;
+	margin: 0px; padding: 0px 5px;
+	text-align: right;
 }
 
 #l-quiz{
@@ -137,11 +150,11 @@ button:hover{
 }
 
 .red{
-	background: darkred;
+	background: crimson;
 }
 
 .red:hover{
-	background: crimson;
+	background: darkred;
 }
 
 .blue{

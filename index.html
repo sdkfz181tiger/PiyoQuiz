@@ -42,8 +42,12 @@
 			<div v-if="quizIndex < quizMax">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
-					Key:{{ quiz.key }}_問題:{{ quizIndex+1 }} / {{ quizes.length }} <br>
-					ok:{{ quiz.ok }} / ng:{{ quiz.ng }}_{{ quiz.genre }}_{{quiz.exam}}
+					<div id="left">
+						問題:{{ quizIndex+1 }} / {{ quizMax }}
+					</div>
+					<div id="right">
+						ok:{{ quiz.ok }} / ng:{{ quiz.ng }}_{{ quiz.genre }}_{{quiz.exam}}
+					</div>
 				</div>
 				<div id="l-quiz">
 					{{ quiz.msg }}
