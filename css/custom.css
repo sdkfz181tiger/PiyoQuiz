@@ -93,7 +93,7 @@ body{
 #l-piyo-area #l-left{
 	width: 40%; height: auto;
 	margin: 6px; padding: 0px;
-	vertical-align: middle;
+	display: flex; flex-wrap: wrap;
 }
 
 #l-piyo-area #l-center{
@@ -108,8 +108,13 @@ body{
 	background: white; text-align: left;
 }
 
-#l-piyo-area #l-left img{
+#l-piyo-area #l-left div{
 	width: 20%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-area #l-left div img{
+	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
 }
 

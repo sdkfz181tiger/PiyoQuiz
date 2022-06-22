@@ -18,11 +18,12 @@ const myData = {
 	quizes:    null,
 	piyoImg:   null,
 	piyoMsg:   null,
+	markBkg:   null,
+	markOK:    null,
+	markNG:    null,
 	cntOK:     null,
 	cntNG:     null,
-	markBkg:   "./images/mark_bkg.png",
-	markOK:    "./images/mark_ok.png",
-	markNG:    "./images/mark_ng.png"
+	scores:    null
 }
 
 // 2, Vue.jsの準備をする
@@ -46,8 +47,12 @@ const app = Vue.createApp({
 			this.quizes    = {};
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
+			this.markBkg   = "./images/mark_bkg.png";
+			this.markOK    = "./images/mark_ok.png";
+			this.markNG    = "./images/mark_ng.png";
 			this.cntOK     = 0;
 			this.cntNG     = 0;
+			this.scores    = new Array(this.quizMax).fill(null);
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
@@ -119,11 +124,13 @@ const app = Vue.createApp({
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
 				this.cntOK++;
+				this.scores[this.quizIndex] = true;
 				this.saveReport(true);// OK
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
 				this.cntNG++;
+				this.scores[this.quizIndex] = false;
 				this.saveReport(false);// NG
 			}
 			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア

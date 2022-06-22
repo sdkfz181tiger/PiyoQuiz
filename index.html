@@ -69,16 +69,11 @@
 				</div>
 				<div id="l-piyo-area">
 					<div id="l-left">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markNG">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markOK">
-						<img v-bind:src="markBkg">
-						<img v-bind:src="markBkg">
-						<img v-bind:src="markBkg">
+						<div v-for="score of scores">
+							<img v-if="score==null" v-bind:src="markBkg">
+							<img v-else-if="score==true" v-bind:src="markOK">
+							<img v-else v-bind:src="markNG">
+						</div>
 					</div>
 					<div id="l-center">
 						<img v-bind:src="piyoImg">
