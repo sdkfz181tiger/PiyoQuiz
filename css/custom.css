@@ -87,25 +87,13 @@ body{
 #l-piyo-area{
 	width: 100%; height: auto;
 	margin: 10px auto 10px auto;
-	display: flex;
+	display: flex; position: relative;
 }
 
 #l-piyo-area #l-left{
-	width: 40%; height: auto;
-	margin: 6px; padding: 0px;
+	width: 30%; height: auto;
+	margin: 5px 0px; padding: 0px;
 	display: flex; flex-wrap: wrap;
-}
-
-#l-piyo-area #l-center{
-	width: 20%; height: 100%;
-	margin: 0px; padding: 0px;
-}
-
-#l-piyo-area #l-right{
-	width: 40%; height: auto;
-	margin: 5px; padding: 5px;
-	border: 0; border-radius: 14px;
-	background: white; text-align: left;
 }
 
 #l-piyo-area #l-left div{
@@ -118,9 +106,22 @@ body{
 	margin: 0px; padding: 0px;
 }
 
-#l-piyo-area #l-center img{
+#l-piyo-area #l-right{
+	width: 50%; height: auto;
+	margin: 5px; padding: 5px 10px;
+	border: 0; border-radius: 14px;
+	background: white; text-align: left;
+}
+
+#l-piyo-area #l-float{
+	width: 18%; height: auto;
+	margin: 0px; padding: 0px;
+	position: absolute; right: 0px; bottom: 0px;
+}
+
+#l-piyo-area #l-float img{
 	width: 100%; height: auto;
-	margin: 10px 0px; padding: 0px;
+	margin: 0px; padding: 0px;
 }
 
 #l-piyo-result{

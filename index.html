@@ -75,14 +75,14 @@
 							<img v-else v-bind:src="markNG">
 						</div>
 					</div>
-					<div id="l-center">
-						<img v-bind:src="piyoImg">
-					</div>
 					<div id="l-right" v-if="!answerFlg">
 						{{ piyoMsg }}<br/>頑張ってね!!
 					</div>
 					<div id="l-right" v-else>
 						{{ piyoMsg }} {{ quiz.detail }}
+					</div>
+					<div id="l-float">
+						<img v-bind:src="piyoImg">
 					</div>
 				</div>
 				<div id="l-next" v-if="answerFlg">
