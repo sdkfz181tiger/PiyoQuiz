@@ -37,13 +37,13 @@ body{
 	display: flex;
 }
 
-#l-status #left{
+#l-status #l-left{
 	width: 30%; height: auto;
 	margin: 0px; padding: 0px 5px;
 	text-align: left;
 }
 
-#l-status #right{
+#l-status #l-right{
 	width: 70%; height: auto;
 	margin: 0px; padding: 0px 5px;
 	text-align: right;
@@ -84,13 +84,38 @@ body{
 	width: 280px; height: auto;
 }
 
-#l-piyo-quiz{
-	width: auto; height: auto;
+#l-piyo-area{
+	width: 100%; height: auto;
 	margin: 10px auto 10px auto;
+	display: flex;
 }
 
-#l-piyo-quiz img{
-	width: 100px; height: auto;
+#l-piyo-area #l-left{
+	width: 40%; height: auto;
+	margin: 6px; padding: 0px;
+	vertical-align: middle;
+}
+
+#l-piyo-area #l-center{
+	width: 20%; height: 100%;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-area #l-right{
+	width: 40%; height: auto;
+	margin: 5px; padding: 5px;
+	border: 0; border-radius: 14px;
+	background: white; text-align: left;
+}
+
+#l-piyo-area #l-left img{
+	width: 20%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-area #l-center img{
+	width: 100%; height: auto;
+	margin: 10px 0px; padding: 0px;
 }
 
 #l-piyo-result{
@@ -130,7 +155,7 @@ body{
 	width: 100%; height: auto;
 	margin: 0px; padding: 5px 0px;
 	position: fixed; bottom: 0px;
-	font-size: 1.0em; font-weight: normal; text-align: center;
+	font-size: 0.8em; font-weight: normal; text-align: center;
 	background: orange; color: black;
 }
 

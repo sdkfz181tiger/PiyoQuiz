@@ -42,10 +42,10 @@
 			<div v-if="quizIndex < quizMax">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
-					<div id="left">
-						問題:{{ quizIndex+1 }} / {{ quizMax }}
+					<div id="l-left">
+						問題: {{ quizIndex+1 }} / {{ quizMax }}
 					</div>
-					<div id="right">
+					<div id="l-right">
 						ok:{{ quiz.ok }} / ng:{{ quiz.ng }}_{{ quiz.genre }}_{{quiz.exam}}
 					</div>
 				</div>
@@ -67,14 +67,28 @@
 						</div>
 					</div>
 				</div>
-				<div id="l-piyo-quiz">
-					<img v-bind:src="piyoImg">
-				</div>
-				<div id="l-piyo-msg" v-if="!answerFlg">
-					{{ piyoMsg }}<br/>頑張ってね!!
-				</div>
-				<div id="l-piyo-msg" v-else>
-					{{ piyoMsg }}<br/>{{ quiz.detail }}
+				<div id="l-piyo-area">
+					<div id="l-left">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markNG">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markOK">
+						<img v-bind:src="markBkg">
+						<img v-bind:src="markBkg">
+						<img v-bind:src="markBkg">
+					</div>
+					<div id="l-center">
+						<img v-bind:src="piyoImg">
+					</div>
+					<div id="l-right" v-if="!answerFlg">
+						{{ piyoMsg }}<br/>頑張ってね!!
+					</div>
+					<div id="l-right" v-else>
+						{{ piyoMsg }} {{ quiz.detail }}
+					</div>
 				</div>
 				<div id="l-next" v-if="answerFlg">
 					<div v-if="quizIndex < quizMax-1">

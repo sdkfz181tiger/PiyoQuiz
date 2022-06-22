@@ -19,7 +19,10 @@ const myData = {
 	piyoImg:   null,
 	piyoMsg:   null,
 	cntOK:     null,
-	cntNG:     null
+	cntNG:     null,
+	markBkg:   "./images/mark_bkg.png",
+	markOK:    "./images/mark_ok.png",
+	markNG:    "./images/mark_ng.png"
 }
 
 // 2, Vue.jsの準備をする
