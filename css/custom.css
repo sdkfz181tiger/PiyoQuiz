@@ -113,7 +113,7 @@ body{
 
 #l-piyo-area #l-right{
 	width: 50%; min-height: 90px;
-	margin: 5px; padding: 5px 10px;
+	margin: 5px 15px; padding: 5px 10px;
 	border: 0; border-radius: 14px;
 	background: white; text-align: left;
 }
