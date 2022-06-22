@@ -91,7 +91,7 @@ body{
 }
 
 #l-piyo-area #l-left{
-	width: 30%; min-height: 90px;
+	width: 30%; min-height: 80px;
 	margin: 5px 0px; padding: 0px;
 	display: flex; flex-wrap: wrap;
 }
@@ -112,7 +112,7 @@ body{
 }
 
 #l-piyo-area #l-right{
-	width: 50%; min-height: 90px;
+	width: 50%; min-height: 80px;
 	margin: 5px 15px; padding: 5px 10px;
 	border: 0; border-radius: 14px;
 	background: white; text-align: left;
