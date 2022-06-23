@@ -137,6 +137,10 @@ const app = Vue.createApp({
 				this.cntNG++;
 				this.scores[this.quizIndex] = false;
 				this.saveReport(false);// NG
+				// GSAP
+				const tl = gsap.timeline({repeat: 1});
+				tl.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
+				tl.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
 			}
 			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア		
 		},
