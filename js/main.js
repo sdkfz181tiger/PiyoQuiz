@@ -118,6 +118,7 @@ const app = Vue.createApp({
 		clickAnswer(btn){
 			// 答えをクリック
 			console.log("clickAnswer");
+
 			if(this.answerFlg == true) return;
 			this.answerFlg = true;// 答えを表示する
 			if(this.quiz.answer == btn){
@@ -126,6 +127,10 @@ const app = Vue.createApp({
 				this.cntOK++;
 				this.scores[this.quizIndex] = true;
 				this.saveReport(true);// OK
+				// GSAP
+				const tl = gsap.timeline();
+				tl.to("#l-float", {duration: 0.2, ease: "power1", y: -40});
+				tl.to("#l-float", {duration: 0.4, ease: "bounce", y: 0});
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
@@ -133,7 +138,7 @@ const app = Vue.createApp({
 				this.scores[this.quizIndex] = false;
 				this.saveReport(false);// NG
 			}
-			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア
+			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア		
 		},
 		clickNext(){
 			// 次の問題へ
