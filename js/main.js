@@ -13,9 +13,9 @@ const myData = {
 	answerFlg: null,
 	quiz:      null,
 	quizIndex: null,
-	quizScore: null,
-	quizLife:  null,
 	quizes:    null,
+	lifeMax:   null,
+	lifeNum:   null,
 	piyoImg:   null,
 	piyoMsg:   null,
 	popupImg:  null,
@@ -42,9 +42,9 @@ const app = Vue.createApp({
 			this.answerFlg = false;
 			this.quiz      = null;
 			this.quizIndex = 0;
-			this.quizScore = 0;
-			this.quizLife  = 1;
 			this.quizes    = {};
+			this.lifeMax   = 3;
+			this.lifeNum   = this.lifeMax;
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
 			this.popupImg  = "./images/mark_bkg.png";
@@ -87,10 +87,13 @@ const app = Vue.createApp({
 			// 次のクイズを読み込む
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
 			this.piyoMsg = "今は" + (this.quizIndex + 1) + "問目だよ!!";
-			this.quiz = this.quizes[this.quizIndex];
+			this.quiz    = this.quizes[this.quizIndex];
+
+			console.log(this.quiz);
+
 			// 2択にする
-			const btns = this.quiz.btns;
-			const index = Math.floor(Math.random()*(btns.length-1)) + 1;
+			const btns   = this.quiz.btns;
+			const index  = Math.floor(Math.random()*(btns.length-1)) + 1;
 			for(let i=btns.length-1; 0<i; i--){
 				if(i == index) continue;
 				btns.splice(i, 1);
@@ -125,18 +128,17 @@ const app = Vue.createApp({
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
 				this.cntOK++;
-				this.quizLife += 0;// Life
+				this.lifeNum += 0;// Life
 				this.saveReport(true);// OK
 				this.popup(true);// Popup
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
 				this.cntNG++;
-				this.quizLife -= 1;// Life
+				this.lifeNum -= 1;// Life
 				this.saveReport(false);// NG
 				this.popup(false);// Popup
-			}
-			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア		
+			}	
 		},
 		clickNext(){
 			// 次の問題へ
@@ -148,7 +150,7 @@ const app = Vue.createApp({
 		clickResult(){
 			// 結果画面へ
 			console.log("clickResult");
-			this.quizLife = -1;// Life
+			this.lifeNum = -1;// Life
 			this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
 			this.loadReport();// Report
 		},

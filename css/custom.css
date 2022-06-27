@@ -27,7 +27,7 @@ body{
 
 #l-start{
 	width: auto; height: auto;
-	margin: 40px auto 10px auto;
+	margin: 20px auto 10px auto;
 }
 
 #l-status{
@@ -92,28 +92,30 @@ body{
 
 #l-piyo-area #l-left{
 	width: 30%; min-height: 80px;
-	margin: 5px 0px; padding: 0px;
+	margin: 5px; padding: 0px;
 	display: flex; flex-wrap: wrap;
 }
 
 #l-piyo-area #l-left #l-label{
 	width: 100%; height: auto;
-	margin: 5px 0px; padding: 0px;
+	margin: 5px; padding: 5px 0px;
+	border: 0; border-radius: 14px;
+	background: lightyellow;
 }
 
-#l-piyo-area #l-left #l-marks{
-	width: 20%; height: auto;
+#l-piyo-area #l-left #l-hearts{
+	width: 33%; height: auto;
 	margin: 0px; padding: 0px;
 }
 
-#l-piyo-area #l-left #l-marks img{
-	width: 100%; height: auto;
+#l-piyo-area #l-left #l-hearts img{
+	width: 90%; height: auto;
 	margin: 0px; padding: 0px;
 }
 
 #l-piyo-area #l-right{
 	width: 50%; min-height: 80px;
-	margin: 5px 15px; padding: 5px 10px;
+	margin: 5px 10px; padding: 5px 10px;
 	border: 0; border-radius: 14px;
 	background: white; text-align: left;
 }
@@ -140,7 +142,7 @@ body{
 
 #l-piyo-msg{
 	width: auto; height: auto;
-	margin: 10px auto 10px auto;
+	margin: 5px auto;
 	font-size: 1.0em; font-weight: normal;
 }
 
