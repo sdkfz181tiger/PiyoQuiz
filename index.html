@@ -51,6 +51,12 @@
 				</div>
 				<div id="l-quiz">
 					{{ quiz.msg }}
+					<div id="l-popup-ok">
+						<img src="./images/mark_ok.png">
+					</div>
+					<div id="l-popup-ng">
+						<img src="./images/mark_ng.png">
+					</div>
 				</div>
 				<div id="l-btns">
 					<div v-for="btn of quiz.btns">
@@ -94,9 +100,6 @@
 					</div>
 				</div>
 				<div v-else id="l-next"></div>
-				<div id="l-popup">
-					<img v-bind:src="popupImg">
-				</div>
 				<!-- クイズ画面(ここまで) -->
 			</div>
 			<div v-else>

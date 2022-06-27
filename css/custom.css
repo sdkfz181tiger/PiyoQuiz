@@ -55,6 +55,34 @@ body{
 	font-size: 1.2em; font-weight: normal; text-align: left;
 	border: 0; border-radius: 14px;
 	background: lightyellow; color: black;
+
+	position: relative;
+}
+
+#l-popup-ok{
+	width: auto; height: auto;
+	position: absolute; top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	display: none;
+}
+
+#l-popup-ok img{
+	width: 120px; height: auto;
+}
+
+#l-popup-ng{
+	width: auto; height: auto;
+	position: absolute; top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	display: none;
+}
+
+#l-popup-ng img{
+	width: 120px; height: auto;
 }
 
 #l-btns{
@@ -149,15 +177,6 @@ body{
 #l-next{
 	width: auto; height: 90px;
 	margin: 10px auto 10px auto;
-}
-
-#l-popup{
-	width: auto; height: auto;
-	position: absolute; top: 45%; left: 50%;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	display: none;
 }
 
 #l-score{

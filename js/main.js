@@ -18,7 +18,6 @@ const myData = {
 	lifeNum:   null,
 	piyoImg:   null,
 	piyoMsg:   null,
-	popupImg:  null,
 	markBkg:   null,
 	markOK:    null,
 	markNG:    null,
@@ -49,7 +48,6 @@ const app = Vue.createApp({
 			this.lifeNum   = this.lifeMax;
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
-			this.popupImg  = "./images/mark_bkg.png";
 			this.markBkg   = "./images/mark_bkg.png";
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
@@ -172,24 +170,24 @@ const app = Vue.createApp({
 		popup(flg){
 			// GSAP
 			if(flg){
-				this.popupImg = "./images/mark_ok.png";
 				this.sndOK.play();
+				const id = "#l-popup-ok";
 				const tlPopup = gsap.timeline();
-				tlPopup.to("#l-popup", {display:"block"});
-				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
-				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
-				tlPopup.to("#l-popup", {duration: 0.8, display:"none"});
+				tlPopup.to(id, {display:"block", opacity: 1.0});
+				tlPopup.to(id, {duration: 0.1, ease: "power1", y: -20});
+				tlPopup.to(id, {duration: 0.4, ease: "bounce", y: 0});
+				tlPopup.to(id, {duration: 0.5, display: "none", opacity: 0.0});
 				const tlPiyo = gsap.timeline();
 				tlPiyo.to("#l-float", {duration: 0.2, ease: "power1", y: -40});
 				tlPiyo.to("#l-float", {duration: 0.4, ease: "bounce", y: 0});
 			}else{
-				this.popupImg = "./images/mark_ng.png";
 				this.sndNG.play();
+				const id = "#l-popup-ng";
 				const tlPopup = gsap.timeline();
-				tlPopup.to("#l-popup", {display:"block"});
-				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
-				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
-				tlPopup.to("#l-popup", {duration: 0.8, display:"none"});
+				tlPopup.to(id, {display:"block", opacity: 1.0});
+				tlPopup.to(id, {duration: 0.1, ease: "power1", y: -20});
+				tlPopup.to(id, {duration: 0.4, ease: "bounce", y: 0});
+				tlPopup.to(id, {duration: 0.5, display: "none", opacity: 0.0});
 				const tlPiyo = gsap.timeline({repeat: 1});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
