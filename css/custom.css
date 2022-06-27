@@ -81,7 +81,7 @@ body{
 }
 
 #l-piyo-logo img{
-	width: 280px; height: auto;
+	width: 50%; height: auto;
 }
 
 #l-piyo-area{
@@ -137,7 +137,7 @@ body{
 }
 
 #l-piyo-result img{
-	width: 320px; height: auto;
+	width: 50%; height: auto;
 }
 
 #l-piyo-msg{
