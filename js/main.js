@@ -94,11 +94,8 @@ const app = Vue.createApp({
 			console.log("readQuiz:", this.quizIndex);
 			// 次のクイズを読み込む
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
-			this.piyoMsg = "今は" + (this.quizIndex + 1) + "問目だよ!!";
+			this.piyoMsg = "次は" + (this.quizIndex + 1) + "問目だよ!!";
 			this.quiz    = this.quizes[this.quizIndex];
-
-			console.log(this.quiz);
-
 			// 2択にする
 			const btns   = this.quiz.btns;
 			const index  = Math.floor(Math.random()*(btns.length-1)) + 1;
@@ -119,7 +116,8 @@ const app = Vue.createApp({
 		},
 		saveReport(flg){
 			if(!this.quiz) return;
-			saveStorage(this.quiz.key, flg);// Save
+			const key = this.quiz.exam + this.quiz.no;// Key
+			saveStorage(key, flg);// Save
 		},
 		clickStart(){
 			// クイズ全体を読み込む

@@ -60,7 +60,7 @@ body{
 
 #l-popup-ok{
 	width: auto; height: auto;
-	position: absolute; top: 50%; left: 50%;
+	position: absolute; top: 55%; left: 50%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
@@ -73,7 +73,7 @@ body{
 
 #l-popup-ng{
 	width: auto; height: auto;
-	position: absolute; top: 50%; left: 50%;
+	position: absolute; top: 55%; left: 50%;
 	transform: translate(-50%, -50%);
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
