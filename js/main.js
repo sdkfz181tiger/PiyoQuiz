@@ -18,6 +18,7 @@ const myData = {
 	quizes:    null,
 	piyoImg:   null,
 	piyoMsg:   null,
+	popupImg:  null,
 	markBkg:   null,
 	markOK:    null,
 	markNG:    null,
@@ -47,6 +48,7 @@ const app = Vue.createApp({
 			this.quizes    = {};
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
+			this.popupImg  = "./images/mark_bkg.png";
 			this.markBkg   = "./images/mark_bkg.png";
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
@@ -127,20 +129,14 @@ const app = Vue.createApp({
 				this.cntOK++;
 				this.scores[this.quizIndex] = true;
 				this.saveReport(true);// OK
-				// GSAP
-				const tl = gsap.timeline();
-				tl.to("#l-float", {duration: 0.2, ease: "power1", y: -40});
-				tl.to("#l-float", {duration: 0.4, ease: "bounce", y: 0});
+				this.popup(true);// Popup
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
 				this.cntNG++;
 				this.scores[this.quizIndex] = false;
 				this.saveReport(false);// NG
-				// GSAP
-				const tl = gsap.timeline({repeat: 1});
-				tl.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
-				tl.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
+				this.popup(false);// Popup
 			}
 			this.quizScore = Math.floor(this.cntOK / (this.cntOK + this.cntNG) * 100);// スコア		
 		},
@@ -160,6 +156,30 @@ const app = Vue.createApp({
 			// リセット
 			console.log("clickReset");
 			this.init();// リセット
+		},
+		popup(flg){
+			// GSAP
+			if(flg){
+				this.popupImg = "./images/mark_ok.png";
+				const tlPopup = gsap.timeline();
+				tlPopup.to("#l-popup", {display:"block"});
+				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
+				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
+				tlPopup.to("#l-popup", {duration: 1.0, display:"none"});
+				const tlPiyo = gsap.timeline();
+				tlPiyo.to("#l-float", {duration: 0.2, ease: "power1", y: -40});
+				tlPiyo.to("#l-float", {duration: 0.4, ease: "bounce", y: 0});
+			}else{
+				this.popupImg = "./images/mark_ng.png";
+				const tlPopup = gsap.timeline();
+				tlPopup.to("#l-popup", {display:"block"});
+				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
+				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
+				tlPopup.to("#l-popup", {duration: 1.0, display:"none"});
+				const tlPiyo = gsap.timeline({repeat: 1});
+				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
+				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
+			}
 		}
 	}
 });
