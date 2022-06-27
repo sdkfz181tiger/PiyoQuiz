@@ -1,0 +1,210 @@
+/* CSS */
+
+html, body, #app{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+}
+
+body{
+	font-feature-settings: "palt";
+	font-family: "M PLUS 1p"; line-height: 1.5; 
+	text-align: center; background: moccasin; 
+	background-image: url("../images/background.png");
+	display: flex; justify-content: center; align-items: center;
+}
+
+#app{
+	width: 90%; height: auto;
+}
+
+#l-title{
+	width: auto; height: auto;
+	margin: 0px; padding: 0px;
+	font-size: 3.0em; font-weight: normal;
+	border: 0; border-radius: 24px;
+	background: orange; color: white;
+}
+
+#l-start{
+	width: auto; height: auto;
+	margin: 40px auto 10px auto;
+}
+
+#l-status{
+	width: 100%; height: auto;
+	margin: 0px auto 0px auto;
+	font-size: 1.0em; font-weight: normal;
+	display: flex;
+}
+
+#l-status #l-left{
+	width: 30%; height: auto;
+	margin: 0px; padding: 0px 5px;
+	text-align: left;
+}
+
+#l-status #l-right{
+	width: 70%; height: auto;
+	margin: 0px; padding: 0px 5px;
+	text-align: right;
+}
+
+#l-quiz{
+	width: auto; min-height: 120px;
+	margin: 10px auto 20px auto; padding: 10px;
+	font-size: 1.2em; font-weight: normal; text-align: left;
+	border: 0; border-radius: 14px;
+	background: lightyellow; color: black;
+}
+
+#l-btns{
+	width: auto; height: auto;
+	display: flex;　justify-content: center;
+}
+
+#l-btns div{
+	width: 50%; height: auto;
+}
+
+#l-btns div div{
+	width: auto; height: auto;
+}
+
+#l-btns button{
+	min-width: 95%; min-height: 120px;
+	margin: 4px; padding: 5px;
+}
+
+#l-piyo-logo{
+	width: auto; height: auto;
+	margin: 40px auto 10px auto;
+}
+
+#l-piyo-logo img{
+	width: 280px; height: auto;
+}
+
+#l-piyo-area{
+	width: 100%; height: auto;
+	margin: 10px auto 10px auto;
+	display: flex; position: relative;
+}
+
+#l-piyo-area #l-left{
+	width: 30%; min-height: 80px;
+	margin: 5px 0px; padding: 0px;
+	display: flex; flex-wrap: wrap;
+}
+
+#l-piyo-area #l-left #l-label{
+	width: 100%; height: auto;
+	margin: 5px 0px; padding: 0px;
+}
+
+#l-piyo-area #l-left #l-marks{
+	width: 20%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-area #l-left #l-marks img{
+	width: 100%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-area #l-right{
+	width: 50%; min-height: 80px;
+	margin: 5px 15px; padding: 5px 10px;
+	border: 0; border-radius: 14px;
+	background: white; text-align: left;
+}
+
+#l-piyo-area #l-float{
+	width: 20%; height: auto;
+	margin: 0px; padding: 0px;
+	position: absolute; right: 0px; bottom: 0px;
+}
+
+#l-piyo-area #l-float img{
+	width: 100%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-piyo-result{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+}
+
+#l-piyo-result img{
+	width: 320px; height: auto;
+}
+
+#l-piyo-msg{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto;
+	font-size: 1.0em; font-weight: normal;
+}
+
+#l-next{
+	width: auto; height: 90px;
+	margin: 10px auto 10px auto;
+}
+
+#l-score{
+	width: auto; height: auto;
+	margin: 10px auto 10px auto; padding: 10px;
+	font-size: 3.0em; font-weight: normal;
+	border: 0; border-radius: 14px;
+	background: lightyellow; color: black;
+}
+
+#l-reset{
+	width: auto; height: auto;
+	margin: 10px auto 5px auto;
+}
+
+#l-powered{
+	width: 100%; height: auto;
+	margin: 0px; padding: 5px 0px;
+	position: fixed; bottom: 0px;
+	font-size: 0.8em; font-weight: normal; text-align: center;
+	background: orange; color: black;
+}
+
+/* Buttons */
+button{
+	min-width: 50%; height: auto;
+	margin: 4px; padding: 12px 0px;
+	appearance: none;
+	font-size: 1.2em; font-weight: bold;
+	border: 0; border-radius: 8px;
+	background: darkorange; color: white;
+	white-space: pre-line; word-wrap:break-word;
+}
+
+button:hover{
+	background: orange;
+}
+
+.red{
+	background: crimson;
+}
+
+.red:hover{
+	background: darkred;
+}
+
+.blue{
+	background: steelblue;
+}
+
+.blue:hover{
+	background: lightseagreen;
+}
+
+.gray{
+	background: silver;
+}
+
+.gray:hover{
+	background: silver;
+}
