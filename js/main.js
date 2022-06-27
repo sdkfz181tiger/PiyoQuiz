@@ -14,7 +14,7 @@ const myData = {
 	quiz:      null,
 	quizIndex: null,
 	quizScore: null,
-	quizMax:   null,
+	quizLife:  null,
 	quizes:    null,
 	piyoImg:   null,
 	piyoMsg:   null,
@@ -24,7 +24,6 @@ const myData = {
 	markNG:    null,
 	cntOK:     null,
 	cntNG:     null,
-	scores:    null
 }
 
 // 2, Vue.jsの準備をする
@@ -44,7 +43,7 @@ const app = Vue.createApp({
 			this.quiz      = null;
 			this.quizIndex = 0;
 			this.quizScore = 0;
-			this.quizMax   = 10;
+			this.quizLife  = 1;
 			this.quizes    = {};
 			this.piyoImg   = "./images/piyo_quiz.png";
 			this.piyoMsg   = "クイズに答えられるかな!?";
@@ -54,7 +53,6 @@ const app = Vue.createApp({
 			this.markNG    = "./images/mark_ng.png";
 			this.cntOK     = 0;
 			this.cntNG     = 0;
-			this.scores    = new Array(this.quizMax).fill(null);
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
@@ -88,7 +86,7 @@ const app = Vue.createApp({
 			console.log("readQuiz:", this.quizIndex);
 			// 次のクイズを読み込む
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
-			this.piyoMsg = "あと" + (this.quizMax - this.quizIndex) + "問だよ";
+			this.piyoMsg = "今は" + (this.quizIndex + 1) + "問目だよ!!";
 			this.quiz = this.quizes[this.quizIndex];
 			// 2択にする
 			const btns = this.quiz.btns;
@@ -127,14 +125,14 @@ const app = Vue.createApp({
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
 				this.cntOK++;
-				this.scores[this.quizIndex] = true;
+				this.quizLife += 0;// Life
 				this.saveReport(true);// OK
 				this.popup(true);// Popup
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
 				this.cntNG++;
-				this.scores[this.quizIndex] = false;
+				this.quizLife -= 1;// Life
 				this.saveReport(false);// NG
 				this.popup(false);// Popup
 			}
@@ -145,12 +143,14 @@ const app = Vue.createApp({
 			console.log("clickNext");
 			this.answerFlg = false;// 答えを非表示に
 			this.quizIndex++;// 次の問題へ
-			if(this.quizIndex < this.quizMax){
-				this.readQuiz();// クイズを1つ読み込む
-			}else{
-				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
-				this.loadReport();// Report
-			}
+			this.readQuiz();// クイズを1つ読み込む
+		},
+		clickResult(){
+			// 結果画面へ
+			console.log("clickResult");
+			this.quizLife = -1;// Life
+			this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
+			this.loadReport();// Report
 		},
 		clickReset(){
 			// リセット

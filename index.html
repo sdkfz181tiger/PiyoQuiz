@@ -39,11 +39,11 @@
 			<!-- タイトル画面(ここまで) -->
 		</div>
 		<div v-else>
-			<div v-if="quizIndex < quizMax">
+			<div v-if="0 <= quizLife">
 				<!-- クイズ画面(ここから) -->
 				<div id="l-status">
 					<div id="l-left">
-						問題: {{ quizIndex+1 }} / {{ quizMax }}
+						問題: {{ quizIndex+1 }}
 					</div>
 					<div id="l-right">
 						{{ quiz.genre }}_{{quiz.exam}}
@@ -69,12 +69,12 @@
 				</div>
 				<div id="l-piyo-area">
 					<div id="l-left">
-						<div id="l-label">せいせき</div>
-						<div id="l-marks" v-for="score of scores">
+						<div id="l-label">ライフ: {{ quizLife }}</div>
+						<!-- <div id="l-marks" v-for="score of scores">
 							<img v-if="score==null" v-bind:src="markBkg">
 							<img v-else-if="score==true" v-bind:src="markOK">
 							<img v-else v-bind:src="markNG">
-						</div>
+						</div> -->
 					</div>
 					<div id="l-right" v-if="!answerFlg">
 						{{ piyoMsg }}<br/>頑張ってね!!
@@ -87,11 +87,11 @@
 					</div>
 				</div>
 				<div id="l-next" v-if="answerFlg">
-					<div v-if="quizIndex < quizMax-1">
+					<div v-if="0 < quizLife">
 						<button v-on:click="clickNext">次の問題へ</button>
 					</div>
 					<div v-else>
-						<button v-on:click="clickNext">結果画面へ</button>
+						<button v-on:click="clickResult">結果画面へ</button>
 					</div>
 				</div>
 				<div v-else id="l-next"></div>
@@ -106,20 +106,19 @@
 					あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
 				</div>
 				<div id="l-score">
-					得点:{{ quizScore }}点
+					{{ cntOK }}問正解!!
 				</div>
 				<div id="l-piyo-result">
 					<img v-bind:src="piyoImg">
 				</div>
 				<div id="l-piyo-msg">
-					{{ quizScore }}点ぴよか。<br/>
-					<div v-if="80 <= quizScore">
+					<div v-if="60 <= cntOK">
 						免許皆伝ぴよ!!
 					</div>
-					<div v-else-if="60 <= quizScore">
+					<div v-else-if="30 <= cntOK">
 						結構当たったぴよ!!
 					</div>
-					<div v-else-if="40 <= quizScore">
+					<div v-else-if="10 <= cntOK">
 						まずまず当たったぴよ!!
 					</div>
 					<div v-else>
