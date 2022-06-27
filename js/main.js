@@ -24,6 +24,8 @@ const myData = {
 	markNG:    null,
 	cntOK:     null,
 	cntNG:     null,
+	sndOK:     null,
+	sndNG:     null,
 }
 
 // 2, Vue.jsの準備をする
@@ -53,6 +55,14 @@ const app = Vue.createApp({
 			this.markNG    = "./images/mark_ng.png";
 			this.cntOK     = 0;
 			this.cntNG     = 0;
+			this.sndOK = new Howl({
+				src: "./sounds/se_ok.mp3", 
+				loop: false, volume: 1.0
+			});
+			this.sndNG = new Howl({
+				src: "./sounds/se_ng.mp3", 
+				loop: false, volume: 1.0
+			});
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
@@ -163,21 +173,23 @@ const app = Vue.createApp({
 			// GSAP
 			if(flg){
 				this.popupImg = "./images/mark_ok.png";
+				this.sndOK.play();
 				const tlPopup = gsap.timeline();
 				tlPopup.to("#l-popup", {display:"block"});
 				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
 				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
-				tlPopup.to("#l-popup", {duration: 1.0, display:"none"});
+				tlPopup.to("#l-popup", {duration: 0.8, display:"none"});
 				const tlPiyo = gsap.timeline();
 				tlPiyo.to("#l-float", {duration: 0.2, ease: "power1", y: -40});
 				tlPiyo.to("#l-float", {duration: 0.4, ease: "bounce", y: 0});
 			}else{
 				this.popupImg = "./images/mark_ng.png";
+				this.sndNG.play();
 				const tlPopup = gsap.timeline();
 				tlPopup.to("#l-popup", {display:"block"});
 				tlPopup.to("#l-popup", {duration: 0.1, ease: "power1", y: -40});
 				tlPopup.to("#l-popup", {duration: 0.2, ease: "bounce", y: 0});
-				tlPopup.to("#l-popup", {duration: 1.0, display:"none"});
+				tlPopup.to("#l-popup", {duration: 0.8, display:"none"});
 				const tlPiyo = gsap.timeline({repeat: 1});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
