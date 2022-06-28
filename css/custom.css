@@ -118,14 +118,14 @@ body{
 }
 
 #l-piyo-area #l-left{
-	width: 30%; min-height: 80px;
+	width: 25%; min-height: 80px;
 	margin: 5px; padding: 0px;
 	display: flex; flex-wrap: wrap;
 }
 
 #l-piyo-area #l-left #l-label{
 	width: 100%; height: auto;
-	margin: 5px; padding: 5px 0px;
+	margin: 5px 0px; padding: 5px 0px 0px 0px;
 	border: 0; border-radius: 14px;
 	background: lightyellow;
 }
@@ -141,7 +141,7 @@ body{
 }
 
 #l-piyo-area #l-right{
-	width: 50%; min-height: 80px;
+	width: 55%; min-height: 80px;
 	margin: 5px 10px; padding: 5px 10px;
 	border: 0; border-radius: 14px;
 	background: white; text-align: left;
