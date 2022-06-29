@@ -197,8 +197,7 @@ body{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
 	position: fixed; bottom: 0px;
-	font-size: 0.8em; font-weight: normal; text-align: center;
-	background: orange; color: black;
+	background: orange;
 }
 
 /* Buttons */
