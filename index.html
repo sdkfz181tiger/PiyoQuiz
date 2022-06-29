@@ -22,8 +22,19 @@
 <body>
 	<div id="app">
 		<div v-if="!quiz">
-			<!-- タイトル画面 -->
-			<cmp-title></cmp-title>
+			<!-- タイトル画面(ここから) -->
+			<div id="l-title">ITぴよクイズ</div>
+			<div id="l-piyo-logo">
+				<img v-bind:src="piyoImg">
+			</div>
+			<div id="l-piyo-msg">
+				{{ piyoMsg }}
+			</div>
+			<div id="l-start">
+				<button v-on:click="clickStart">クイズ開始</button>
+			</div>
+			<cmp-pwd></cmp-pwd>
+			<!-- タイトル画面(ここまで) -->
 		</div>
 		<div v-else>
 			<div v-if="0 <= lifeNum">
@@ -121,30 +132,17 @@
 			</div>
 		</div>
 	</div>
-	<div id="l-powered">
-		クイズ監修:<a href="https://www.mag2.com/m/0000001414" target="_blank">宿題メール</a>
-	</div>
-
 	<!-- i-mobile -->
-	<div id="im-44312d36535c4279801e55f8fd54c60f">
+	<div id="im-44312d36535c4279801e55f8fd54c60f"></div>
 	<script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
-	<script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:26719,mid:550231,asid:1792594,type:"banner",display:"inline",elementid:"im-44312d36535c4279801e55f8fd54c60f"})</script>
-	</div>
+	<script>
+		(window.adsbyimobile=window.adsbyimobile||[]).push({
+			pid:26719, mid:550231, asid:1792594, type:"banner", display:"inline",
+			elementid:"im-44312d36535c4279801e55f8fd54c60f"});
+	</script>
 	<!-- Templates -->
-	<script type="text/x-template" id="tmp-title">
-		<div id="l-title">ITぴよクイズ</div>
-		<div id="l-piyo-logo">
-			<img v-bind:src="piyoImg">
-		</div>
-		<div id="l-piyo-msg">
-			{{ piyoMsg }}
-		</div>
-		<div id="l-start">
-			<button v-on:click.native="clickStart">クイズ開始</button>
-		</div>
-		<div>
-			イラスト:<a href="https://hiyokoyarou.com/" target="_blank">ぴよたそ</a>
-		</div>
+	<script type="text/x-template" id="tmp-pwd">
+		クイズ監修:<a v-bind:href="pwdURL" target="_blank">{{ pwdTitle }}</a>
 	</script>
 	<!-- JavaScript -->
 	<script src="//cdn.jsdelivr.net/npm/gsap@3.10.4/dist/gsap.min.js"></script>

@@ -193,12 +193,12 @@ const app = Vue.createApp({
 });
 
 // Components
-app.component("cmp-title", {
-	template: "#tmp-title",
+app.component("cmp-pwd", {
+	template: "#tmp-pwd",
 	data(){
 		return {
-			piyoImg: "./images/piyo_quiz.png",
-			piyoMsg: "クイズに答えられるかな!?",
+			pwdTitle: "宿題メール",
+			pwdURL: "https://www.mag2.com/m/0000001414"
 		}
 	}
 });
