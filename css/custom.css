@@ -191,9 +191,9 @@ body{
 	margin: 10px auto 5px auto;
 }
 
-#l-powered{
+#l-banner{
 	width: 100%; height: auto;
-	margin: 0px; padding: 5px 0px;
+	margin: 0px; padding: 0px;
 	position: fixed; bottom: 0px;
 	font-size: 0.8em; font-weight: normal; text-align: center;
 	background: orange; color: black;
