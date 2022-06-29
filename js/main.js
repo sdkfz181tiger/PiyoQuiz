@@ -8,7 +8,6 @@ const SS_ID     = "1CzccPnNKqIEgTPyvq83w28H0t5ycmuhe_EBarAdy4xY";
 const SS_CSV    = "/export?format=csv";
 const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
-// 1, Vue.jsで扱うデータを用意する
 const myData = {
 	answerFlg: null,
 	quiz:      null,
@@ -27,10 +26,9 @@ const myData = {
 	sndNG:     null,
 }
 
-// 2, Vue.jsの準備をする
 const app = Vue.createApp({
 	data(){
-		return myData;// 扱うデータを指定する
+		return myData;
 	},
 	created(){
 		console.log("created!!");
@@ -193,4 +191,16 @@ const app = Vue.createApp({
 		}
 	}
 });
-app.mount("#app");// 3, Vue.jsを起動する
+
+// Components
+app.component("cmp-title", {
+	template: "#tmp-title",
+	data(){
+		return {
+			piyoImg: "./images/piyo_quiz.png",
+			piyoMsg: "クイズに答えられるかな!?",
+		}
+	}
+});
+
+app.mount("#app");

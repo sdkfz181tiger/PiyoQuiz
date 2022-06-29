@@ -22,21 +22,8 @@
 <body>
 	<div id="app">
 		<div v-if="!quiz">
-			<!-- タイトル画面(ここから) -->
-			<div id="l-title">ITぴよクイズ</div>
-			<div id="l-piyo-logo">
-				<img v-bind:src="piyoImg">
-			</div>
-			<div id="l-piyo-msg">
-				{{ piyoMsg }}
-			</div>
-			<div id="l-start">
-				<button v-on:click="clickStart"/>クイズ開始</button>
-			</div>
-			<div>
-				イラスト:<a href="https://hiyokoyarou.com/" target="_blank">ぴよたそ</a>
-			</div>
-			<!-- タイトル画面(ここまで) -->
+			<!-- タイトル画面 -->
+			<cmp-title></cmp-title>
 		</div>
 		<div v-else>
 			<div v-if="0 <= lifeNum">
@@ -128,18 +115,39 @@
 					</div>
 				</div>
 				<div id="l-reset">
-					<button v-on:click="clickReset"/>タイトルに戻る</button>
+					<button v-on:click="clickReset">タイトルに戻る</button>
 				</div>
 				<!-- 結果画面(ここまで) -->
 			</div>
 		</div>
 	</div>
-	<div id="ad_display_area"></div>
 	<div id="l-powered">
 		クイズ監修:<a href="https://www.mag2.com/m/0000001414" target="_blank">宿題メール</a>
 	</div>
+
+	<!-- i-mobile -->
+	<div id="im-44312d36535c4279801e55f8fd54c60f">
+	<script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+	<script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:26719,mid:550231,asid:1792594,type:"banner",display:"inline",elementid:"im-44312d36535c4279801e55f8fd54c60f"})</script>
+	</div>
+	<!-- Templates -->
+	<script type="text/x-template" id="tmp-title">
+		<div id="l-title">ITぴよクイズ</div>
+		<div id="l-piyo-logo">
+			<img v-bind:src="piyoImg">
+		</div>
+		<div id="l-piyo-msg">
+			{{ piyoMsg }}
+		</div>
+		<div id="l-start">
+			<button v-on:click.native="clickStart">クイズ開始</button>
+		</div>
+		<div>
+			イラスト:<a href="https://hiyokoyarou.com/" target="_blank">ぴよたそ</a>
+		</div>
+	</script>
 	<!-- JavaScript -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/gsap@3.10.4/dist/gsap.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
 	<script src="//unpkg.com/vue@next"></script>
