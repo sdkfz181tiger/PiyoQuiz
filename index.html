@@ -112,18 +112,7 @@
 					<img v-bind:src="piyoImg">
 				</div>
 				<div id="l-piyo-msg">
-					<div v-if="60 <= cntOK">
-						免許皆伝ぴよ!!
-					</div>
-					<div v-else-if="30 <= cntOK">
-						結構当たったぴよ!!
-					</div>
-					<div v-else-if="10 <= cntOK">
-						まずまず当たったぴよ!!
-					</div>
-					<div v-else>
-						次は頑張るぴよ!!
-					</div>
+					{{ piyoMsg }}
 				</div>
 				<div id="l-reset">
 					<button v-on:click="clickReset">タイトルに戻る</button>

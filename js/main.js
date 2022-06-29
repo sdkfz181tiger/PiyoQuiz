@@ -62,7 +62,7 @@ const app = Vue.createApp({
 		},
 		loadQuiz(){
 			// クイズ全体を読み込む
-			this.piyoImg = "./images/piyo_pc_wink.png";
+			this.piyoImg = "./images/piyo_quiz.png";
 			this.piyoMsg = "ちょっと待ってね";
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
@@ -155,7 +155,19 @@ const app = Vue.createApp({
 			// 結果画面へ
 			console.log("clickResult");
 			this.lifeNum = -1;// Life
-			this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
+			if(this.cntOK < 10){
+				this.piyoImg = "./images/piyo_pc_confuse.png";// Piyo
+				this.piyoMsg = "今日は調子が悪いピヨ!!";
+			}else if(this.cntOK < 20){
+				this.piyoImg = "./images/piyo_pc_cry.png";// Piyo
+				this.piyoMsg = "もっとがんばるピヨ!!";
+			}else if(this.cntOK < 40){
+				this.piyoImg = "./images/piyo_pc_night.png";// Piyo
+				this.piyoMsg = "まだまだやれるピヨ!!!!";
+			}else{
+				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
+				this.piyoMsg = "とても満足ピヨ!!!!";
+			}
 			this.loadReport();// Report
 		},
 		clickReset(){
