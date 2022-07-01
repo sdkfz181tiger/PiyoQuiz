@@ -231,6 +231,10 @@ body{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
 	position: fixed; bottom: 0px;
+}
+
+#l-banner div{
+	width: 90%; height: auto;
 	background: orange;
 }
 
