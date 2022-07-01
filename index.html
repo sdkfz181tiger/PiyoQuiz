@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="!quiz">
+		<div v-if="mode==1">
 			<!-- タイトル画面(ここから) -->
 			<div id="l-title">ITぴよクイズ</div>
 			<div id="l-piyo-logo">
@@ -36,89 +36,87 @@
 			<cmp-pwd></cmp-pwd>
 			<!-- タイトル画面(ここまで) -->
 		</div>
-		<div v-else>
-			<div v-if="0 <= lifeNum">
-				<!-- クイズ画面(ここから) -->
-				<div id="l-status">
-					<div id="l-left">
-						問題: {{ quizIndex+1 }}
-					</div>
-					<div id="l-right">
-						{{ quiz.genre }}_{{quiz.exam}}
-					</div>
+		<div v-if="mode==2">
+			<!-- クイズ画面(ここから) -->
+			<div id="l-status">
+				<div id="l-left">
+					問題: {{ quizIndex+1 }}
 				</div>
-				<div id="l-quiz">
-					{{ quiz.msg }}
-					<div id="l-popup-ok">
-						<img src="./images/mark_ok.png">
-					</div>
-					<div id="l-popup-ng">
-						<img src="./images/mark_ng.png">
-					</div>
+				<div id="l-right">
+					{{ quiz.genre }}_{{quiz.exam}}
 				</div>
-				<div id="l-btns">
-					<div v-for="btn of quiz.btns">
-						<div v-if="answerFlg">
-							<div v-if="quiz.answer==btn">
-								<button class="blue" v-html="btn"></button>
-							</div>
-							<div v-else>
-								<button class="gray" v-html="btn"></button>
-							</div>
+			</div>
+			<div id="l-quiz">
+				{{ quiz.msg }}
+				<div id="l-popup-ok">
+					<img src="./images/mark_ok.png">
+				</div>
+				<div id="l-popup-ng">
+					<img src="./images/mark_ng.png">
+				</div>
+			</div>
+			<div id="l-btns">
+				<div v-for="btn of quiz.btns">
+					<div v-if="answerFlg">
+						<div v-if="quiz.answer==btn">
+							<button class="blue" v-html="btn"></button>
 						</div>
 						<div v-else>
-							<button v-on:click="clickAnswer(btn)" v-html="btn"></button>
+							<button class="gray" v-html="btn"></button>
 						</div>
-					</div>
-				</div>
-				<div id="l-piyo-area">
-					<div id="l-left">
-						<div id="l-label">ライフ</div>
-						<div id="l-hearts" v-for="i in lifeMax">
-							<img v-if="i <= lifeNum" src="./images/heart_on.png">
-							<img v-else src="./images/heart_off.png">
-						</div>
-					</div>
-					<div id="l-right" v-if="!answerFlg">
-						{{ piyoMsg }}<br/>頑張ってね!!
-					</div>
-					<div id="l-right" v-else>
-						{{ piyoMsg }}<br/>{{ quiz.comment }}
-					</div>
-					<div id="l-float">
-						<img v-bind:src="piyoImg">
-					</div>
-				</div>
-				<div id="l-next" v-if="answerFlg">
-					<div v-if="quizIndex < quizes.length-1 && 0 < lifeNum">
-						<button v-on:click="clickNext">次の問題へ</button>
 					</div>
 					<div v-else>
-						<button v-on:click="clickResult">結果画面へ</button>
+						<button v-on:click="clickAnswer(btn)" v-html="btn"></button>
 					</div>
 				</div>
-				<div v-else id="l-next"></div>
-				<!-- クイズ画面(ここまで) -->
 			</div>
-			<div v-else>
-				<!-- 結果画面(ここから) -->
-				<div id="l-status">
-					あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
+			<div id="l-piyo-area">
+				<div id="l-left">
+					<div id="l-label">ライフ</div>
+					<div id="l-hearts" v-for="i in lifeMax">
+						<img v-if="i <= lifeNum" src="./images/heart_on.png">
+						<img v-else src="./images/heart_off.png">
+					</div>
 				</div>
-				<div id="l-score">
-					{{ cntOK }}問正解!!
+				<div id="l-right" v-if="!answerFlg">
+					{{ piyoMsg }}<br/>頑張ってね!!
 				</div>
-				<div id="l-piyo-result">
+				<div id="l-right" v-else>
+					{{ piyoMsg }}<br/>{{ quiz.comment }}
+				</div>
+				<div id="l-float">
 					<img v-bind:src="piyoImg">
 				</div>
-				<div id="l-piyo-msg">
-					{{ piyoMsg }}
-				</div>
-				<div id="l-reset">
-					<button v-on:click="clickReset">タイトルに戻る</button>
-				</div>
-				<!-- 結果画面(ここまで) -->
 			</div>
+			<div id="l-next" v-if="answerFlg">
+				<div v-if="quizIndex < quizes.length-1 && 0 < lifeNum">
+					<button v-on:click="clickNext">次の問題へ</button>
+				</div>
+				<div v-else>
+					<button v-on:click="clickResult">結果画面へ</button>
+				</div>
+			</div>
+			<div v-else id="l-next"></div>
+			<!-- クイズ画面(ここまで) -->
+		</div>
+		<div v-if="mode==3">
+			<!-- 結果画面(ここから) -->
+			<div id="l-status">
+				あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
+			</div>
+			<div id="l-score">
+				{{ cntOK }}問正解!!
+			</div>
+			<div id="l-piyo-result">
+				<img v-bind:src="piyoImg">
+			</div>
+			<div id="l-piyo-msg">
+				{{ piyoMsg }}
+			</div>
+			<div id="l-reset">
+				<button v-on:click="clickReset">タイトルに戻る</button>
+			</div>
+			<!-- 結果画面(ここまで) -->
 		</div>
 	</div>
 	<!-- i-mobile -->

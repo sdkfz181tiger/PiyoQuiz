@@ -8,11 +8,17 @@ const SS_ID     = "1CzccPnNKqIEgTPyvq83w28H0t5ycmuhe_EBarAdy4xY";
 const SS_CSV    = "/export?format=csv";
 const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
+const MODE_NONE   = 0;
+const MODE_TITLE  = 1;
+const MODE_QUIZ   = 2;
+const MODE_RESULT = 3;
+
 const myData = {
-	answerFlg: null,
+	mode:      null,
+	quizes:    null,
 	quiz:      null,
 	quizIndex: null,
-	quizes:    null,
+	answerFlg: null,
 	lifeMax:   null,
 	lifeNum:   null,
 	piyoImg:   null,
@@ -38,10 +44,11 @@ const app = Vue.createApp({
 	methods:{
 		init(){
 			// リセット
-			this.answerFlg = false;
+			this.mode      = MODE_TITLE;
+			this.quizes    = {};
 			this.quiz      = null;
 			this.quizIndex = 0;
-			this.quizes    = {};
+			this.answerFlg = false;
 			this.lifeMax   = 3;
 			this.lifeNum   = this.lifeMax;
 			this.piyoImg   = "./images/piyo_quiz.png";
@@ -66,6 +73,7 @@ const app = Vue.createApp({
 			this.piyoMsg = "ちょっと待ってね";
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
+				this.mode = MODE_QUIZ;// Quiz画面へ
 				this.quizes = arr;// JSONファイルからロード
 				for(let quiz of this.quizes) {
 					quiz.answer = quiz.btnA;// 答えを確定
@@ -154,7 +162,7 @@ const app = Vue.createApp({
 		clickResult(){
 			// 結果画面へ
 			console.log("clickResult");
-			this.lifeNum = -1;// Life
+			this.mode = MODE_RESULT;// 結果画面へ
 			if(this.cntOK < 10){
 				this.piyoImg = "./images/piyo_pc_confuse.png";// Piyo
 				this.piyoMsg = "今日は調子が悪いピヨ!!";
