@@ -150,9 +150,12 @@
 	<script src="//imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
 	<script>
 		// Banner
-		(window.adsbyimobile=window.adsbyimobile||[]).push({
-			pid:26719, mid:550231, asid:1792594, type:"banner", display:"inline",
-			elementid:"im-44312d36535c4279801e55f8fd54c60f"});
+		window.onload = ()=>{
+			console.log("Hello, i-mobile!!");
+			(window.adsbyimobile=window.adsbyimobile||[]).push({
+				pid:26719, mid:550231, asid:1792594, type:"banner", display:"inline",
+				elementid:"im-44312d36535c4279801e55f8fd54c60f"});
+		}
 		/*
 		// Square
 		(window.adsbyimobile=window.adsbyimobile||[]).push({
