@@ -199,16 +199,26 @@ body{
 #l-answers table{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
+	table-layout: fixed;
 }
 
 #l-answers table td{
 	width: auto; height: auto;
 	margin: 0px; padding: 10px 5px;
 	font-size: 1.0em; font-weight: normal;
-	overflow: hidden; text-align: center;
+	text-align: center; text-overflow: ellipsis;
+	overflow: hidden; white-space: nowrap;
 }
 
-#l-answers table #l-t-left{
+#l-answers table th{
+	width: 15%; height: auto;
+}
+
+#l-answers table #l-mid{
+	width: 55%; height: auto;
+}
+
+#l-answers table #l-text{
 	text-align: left;
 }
 
