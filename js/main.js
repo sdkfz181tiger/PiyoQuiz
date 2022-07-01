@@ -72,8 +72,9 @@ const app = Vue.createApp({
 			loadSpreadSheet(SS_URL, arr=>{
 				this.quizes = arr;// JSONファイルからロード
 				for(let quiz of this.quizes){
+					quiz.key    = quiz.exam + quiz.no;// Key
 					quiz.answer = quiz.btnA;// 答えを確定
-					quiz.btns = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
+					quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
 				}
 				this.piyoImg = "./images/piyo_ok.png";
 				this.piyoMsg = "クイズに答えられるかな!?";
@@ -123,8 +124,7 @@ const app = Vue.createApp({
 		},
 		saveReport(flg){
 			if(!this.quiz) return;
-			const key = this.quiz.exam + this.quiz.no;// Key
-			saveStorage(key, flg);// Save
+			saveStorage(this.quiz.key, flg);// Save
 		},
 		clickStart(){
 			// クイズ開始をクリック
@@ -194,9 +194,7 @@ const app = Vue.createApp({
 			console.log("clickDetail");
 			if(!this.quizes) return;
 			this.mode = MODE_DETAIL;// 成績確認画面へ
-			for(let quiz of this.quizes) {
-				console.log(quiz.answer);
-			}
+			this.loadReport();// Report
 		},
 		popup(flg){
 			// GSAP

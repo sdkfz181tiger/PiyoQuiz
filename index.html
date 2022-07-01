@@ -125,9 +125,14 @@
 			<!-- 成績画面(ここから) -->
 			<div id="l-answers">
 				<table>
+					<tr>
+						<th>試験</th><th>単語</th><th>あたり</th><th>はずれ</th>
+					</tr>
 					<tr v-for="quize of quizes">
 						<td>{{ quize.exam }}</td>
 						<td>{{ quize.answer }}</td>
+						<td>{{ quize.ok }}</td>
+						<td>{{ quize.ng }}</td>
 					</tr>
 				</table>
 			</div>

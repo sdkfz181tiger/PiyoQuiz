@@ -203,9 +203,9 @@ body{
 
 #l-answers table td{
 	width: auto; height: auto;
-	margin: 0px; padding: 5px;
+	margin: 0px; padding: 2px auto;
 	font-size: 1.0em; font-weight: normal;
-	text-align: left;
+	text-align: center;
 }
 
 #l-banner{
