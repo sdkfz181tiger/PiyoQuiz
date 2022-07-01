@@ -221,6 +221,9 @@ const app = Vue.createApp({
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
 			}
+		},
+		replaceBR(str){
+			return str.replace("<br>", "");
 		}
 	}
 });

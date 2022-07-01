@@ -203,9 +203,13 @@ body{
 
 #l-answers table td{
 	width: auto; height: auto;
-	margin: 0px; padding: 2px auto;
+	margin: 0px; padding: 10px 5px;
 	font-size: 1.0em; font-weight: normal;
-	text-align: center;
+	overflow: hidden; text-align: center;
+}
+
+#l-answers table #l-t-left{
+	text-align: left;
 }
 
 #l-banner{
