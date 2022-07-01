@@ -186,9 +186,9 @@ const app = Vue.createApp({
 			this.init();// リセット
 		},
 		clickDetail(){
-			// 詳細画面
+			// 成績確認
 			console.log("clickDetail");
-			this.mode = MODE_DETAIL;// 詳細画面へ
+			this.mode = MODE_DETAIL;// 成績確認画面へ
 		},
 		popup(flg){
 			// GSAP
