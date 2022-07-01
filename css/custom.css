@@ -191,10 +191,19 @@ body{
 #l-answers{
 	width: 95%; height: 320px;
 	margin: 10px auto 10px auto; padding: 5px;
-	font-size: 1.0em; font-weight: normal;
-	border: 0; border-radius: 8px;
-	background: lightyellow; color: black;
 	overflow-y: scroll;
+	background: lightyellow;
+}
+
+#l-answers table{
+	width: 100%; height: auto;
+	margin: 0px; padding: 0px;
+	background: lightsalmon;
+}
+
+#l-answers table td{
+	font-size: 1.0em; font-weight: normal;
+	text-align: left;
 }
 
 #l-banner{

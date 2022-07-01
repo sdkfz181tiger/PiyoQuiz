@@ -124,9 +124,12 @@
 		<div v-if="mode==4">
 			<!-- 成績画面(ここから) -->
 			<div id="l-answers">
-				<ul>
-					<li v-for="quize of quizes">{{ quize.answer }}</li>
-				</ul>
+				<table>
+					<tr v-for="quize of quizes">
+						<td>{{ quize.exam }}</td>
+						<td>{{ quize.answer }}</td>
+					</tr>
+				</table>
 			</div>
 			<div id="l-modes">
 				<button v-on:click="clickRetry">タイトルに戻る</button>
