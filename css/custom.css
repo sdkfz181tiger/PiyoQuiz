@@ -193,13 +193,18 @@ body{
 	margin: 0px auto 0px auto; padding: 0px;
 	border: 0; border-radius: 8px;
 	overflow-y: scroll;
-	background: lightyellow;
+	background: ivory;
 }
 
 #l-answers table{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
 	table-layout: fixed;
+	background: ivory;
+}
+
+#l-answers table tr:nth-child(even) {
+	background: lemonchiffon;
 }
 
 #l-answers table td{
