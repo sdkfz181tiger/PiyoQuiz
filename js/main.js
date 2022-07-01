@@ -46,14 +46,14 @@ const app = Vue.createApp({
 		init(){
 			// リセット
 			this.mode      = MODE_TITLE;
-			this.quizes    = {};
+			this.quizes    = null;
 			this.quiz      = null;
 			this.quizIndex = 0;
 			this.answerFlg = false;
 			this.lifeMax   = 3;
 			this.lifeNum   = this.lifeMax;
 			this.piyoImg   = "./images/piyo_quiz.png";
-			this.piyoMsg   = "クイズに答えられるかな!?";
+			this.piyoMsg   = "ちょっと待ってね!!";
 			this.markBkg   = "./images/mark_bkg.png";
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
@@ -67,25 +67,25 @@ const app = Vue.createApp({
 				src: "./sounds/se_ng.mp3", 
 				loop: false, volume: 1.0
 			});
-		},
-		loadQuiz(){
-			// クイズ全体を読み込む
-			this.piyoImg = "./images/piyo_quiz.png";
-			this.piyoMsg = "ちょっと待ってね";
+
 			// SpreadSheet
 			loadSpreadSheet(SS_URL, arr=>{
-				this.mode = MODE_QUIZ;// Quiz画面へ
 				this.quizes = arr;// JSONファイルからロード
-				for(let quiz of this.quizes) {
+				for(let quiz of this.quizes){
 					quiz.answer = quiz.btnA;// 答えを確定
 					quiz.btns = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
 				}
-				this.shuffleQuiz();// クイズをシャッフル
-				this.readQuiz();// クイズを1つ読み込む
-				this.loadReport();// Report
+				this.piyoImg = "./images/piyo_ok.png";
+				this.piyoMsg = "クイズに答えられるかな!?";
 			}, err=>{
 				console.log(err);
 			});
+		},
+		readyQuiz(){
+			// クイズを準備する
+			this.shuffleQuiz();// クイズをシャッフル
+			this.readQuiz();// クイズを1つ読み込む
+			this.loadReport();// Report
 		},
 		shuffleQuiz(){
 			// クイズをシャッフル
@@ -127,14 +127,15 @@ const app = Vue.createApp({
 			saveStorage(key, flg);// Save
 		},
 		clickStart(){
-			// クイズ全体を読み込む
+			// クイズ開始をクリック
 			console.log("clickStart");
-			this.loadQuiz();
+			if(!this.quizes) return;
+			this.mode = MODE_QUIZ;// Quiz画面へ
+			this.readyQuiz();
 		},
 		clickAnswer(btn){
 			// 答えをクリック
 			console.log("clickAnswer");
-
 			if(this.answerFlg == true) return;
 			this.answerFlg = true;// 答えを表示する
 			if(this.quiz.answer == btn){
@@ -163,6 +164,7 @@ const app = Vue.createApp({
 		clickResult(){
 			// 結果画面へ
 			console.log("clickResult");
+			if(!this.quizes) return;
 			this.mode = MODE_RESULT;// 結果画面へ
 			if(this.cntOK < 10){
 				this.piyoImg = "./images/piyo_pc_confuse.png";// Piyo
@@ -189,6 +191,10 @@ const app = Vue.createApp({
 			// 成績確認
 			console.log("clickDetail");
 			this.mode = MODE_DETAIL;// 成績確認画面へ
+
+			for(let quiz of this.quizes) {
+				console.log(quiz);
+			}
 		},
 		popup(flg){
 			// GSAP
