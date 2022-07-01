@@ -189,8 +189,9 @@ body{
 }
 
 #l-answers{
-	width: 95%; height: 320px;
-	margin: 10px auto 10px auto; padding: 5px;
+	width: 100%; height: 320px;
+	margin: 0px auto 0px auto; padding: 0px;
+	border: 0; border-radius: 8px;
 	overflow-y: scroll;
 	background: lightyellow;
 }
@@ -198,10 +199,11 @@ body{
 #l-answers table{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
-	background: lightsalmon;
 }
 
 #l-answers table td{
+	width: auto; height: auto;
+	margin: 0px; padding: 5px;
 	font-size: 1.0em; font-weight: normal;
 	text-align: left;
 }
