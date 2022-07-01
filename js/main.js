@@ -157,6 +157,7 @@ const app = Vue.createApp({
 		clickNext(){
 			// 次の問題へ
 			console.log("clickNext");
+			if(this.answerFlg == false) return;
 			this.answerFlg = false;// 答えを非表示に
 			this.quizIndex++;// 次の問題へ
 			this.readQuiz();// クイズを1つ読み込む
@@ -184,16 +185,17 @@ const app = Vue.createApp({
 		clickRetry(){
 			// リトライ
 			console.log("clickReset");
+			if(!this.quizes) return;
 			this.mode = MODE_TITLE;// タイトル画面へ
 			this.init();// リセット
 		},
 		clickDetail(){
 			// 成績確認
 			console.log("clickDetail");
+			if(!this.quizes) return;
 			this.mode = MODE_DETAIL;// 成績確認画面へ
-
 			for(let quiz of this.quizes) {
-				console.log(quiz);
+				console.log(quiz.answer);
 			}
 		},
 		popup(flg){

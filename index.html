@@ -122,14 +122,16 @@
 			<!-- 結果画面(ここまで) -->
 		</div>
 		<div v-if="mode==4">
-			<!-- 詳細画面(ここから) -->
-			<div id="l-piyo-msg">
-				{{ piyoMsg }}
+			<!-- 成績画面(ここから) -->
+			<div id="l-answers">
+				<ul>
+					<li v-for="quize of quizes">{{ quize.answer }}</li>
+				</ul>
 			</div>
 			<div id="l-modes">
 				<button v-on:click="clickRetry">タイトルに戻る</button>
 			</div>
-			<!-- 詳細画面(ここまで) -->
+			<!-- 成績画面(ここまで) -->
 		</div>
 	</div>
 	<!-- i-mobile -->

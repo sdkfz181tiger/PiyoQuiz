@@ -188,6 +188,15 @@ body{
 	background: lightyellow; color: black;
 }
 
+#l-answers{
+	width: 95%; height: 320px;
+	margin: 10px auto 10px auto; padding: 5px;
+	font-size: 1.0em; font-weight: normal;
+	border: 0; border-radius: 8px;
+	background: lightyellow; color: black;
+	overflow-y: scroll;
+}
+
 #l-banner{
 	width: 100%; height: auto;
 	margin: 0px; padding: 0px;
