@@ -30,8 +30,11 @@
 			<div id="l-piyo-msg">
 				{{ piyoMsg }}
 			</div>
-			<div id="l-start">
+			<div id="l-modes">
 				<button v-on:click="clickStart">クイズ開始</button>
+			</div>
+			<div id="l-modes">
+				<button v-on:click="clickDetail">成績詳細へ</button>
 			</div>
 			<cmp-pwd></cmp-pwd>
 			<!-- タイトル画面(ここまで) -->
@@ -113,10 +116,20 @@
 			<div id="l-piyo-msg">
 				{{ piyoMsg }}
 			</div>
-			<div id="l-reset">
-				<button v-on:click="clickReset">タイトルに戻る</button>
+			<div id="l-modes">
+				<button v-on:click="clickDetail">成績詳細へ</button>
 			</div>
 			<!-- 結果画面(ここまで) -->
+		</div>
+		<div v-if="mode==4">
+			<!-- 詳細画面(ここから) -->
+			<div id="l-piyo-msg">
+				{{ piyoMsg }}
+			</div>
+			<div id="l-modes">
+				<button v-on:click="clickRetry">タイトルに戻る</button>
+			</div>
+			<!-- 詳細画面(ここまで) -->
 		</div>
 	</div>
 	<!-- i-mobile -->

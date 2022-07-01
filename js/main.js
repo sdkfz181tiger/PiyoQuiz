@@ -12,6 +12,7 @@ const MODE_NONE   = 0;
 const MODE_TITLE  = 1;
 const MODE_QUIZ   = 2;
 const MODE_RESULT = 3;
+const MODE_DETAIL = 4;
 
 const myData = {
 	mode:      null,
@@ -178,10 +179,16 @@ const app = Vue.createApp({
 			}
 			this.loadReport();// Report
 		},
-		clickReset(){
-			// リセット
+		clickRetry(){
+			// リトライ
 			console.log("clickReset");
+			this.mode = MODE_TITLE;// タイトル画面へ
 			this.init();// リセット
+		},
+		clickDetail(){
+			// 詳細画面
+			console.log("clickDetail");
+			this.mode = MODE_DETAIL;// 詳細画面へ
 		},
 		popup(flg){
 			// GSAP

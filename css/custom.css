@@ -25,9 +25,9 @@ body{
 	background: orange; color: white;
 }
 
-#l-start{
+#l-modes{
 	width: auto; height: auto;
-	margin: 20px auto 10px auto;
+	margin: 10px auto 10px auto;
 }
 
 #l-status{
@@ -108,7 +108,7 @@ body{
 }
 
 #l-piyo-logo img{
-	width: 50%; height: auto;
+	width: 40%; height: auto;
 }
 
 #l-piyo-area{
@@ -171,7 +171,7 @@ body{
 
 #l-piyo-msg{
 	width: auto; height: auto;
-	margin: 5px auto;
+	margin: 5px auto 20px auto;
 	font-size: 1.0em; font-weight: normal;
 }
 
@@ -186,11 +186,6 @@ body{
 	font-size: 3.0em; font-weight: normal;
 	border: 0; border-radius: 14px;
 	background: lightyellow; color: black;
-}
-
-#l-reset{
-	width: auto; height: auto;
-	margin: 10px auto 5px auto;
 }
 
 #l-banner{
