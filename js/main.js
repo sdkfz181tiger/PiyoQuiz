@@ -8,7 +8,7 @@ const SS_ID     = "1CzccPnNKqIEgTPyvq83w28H0t5ycmuhe_EBarAdy4xY";
 const SS_CSV    = "/export?format=csv";
 const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
-const MODE_NONE   = 0;
+const MODE_TEST   = 0;
 const MODE_TITLE  = 1;
 const MODE_QUIZ   = 2;
 const MODE_RESULT = 3;

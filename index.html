@@ -21,7 +21,10 @@
 </head>
 <body>
 	<div id="app">
-		<div v-if="mode==1">
+		<div id="l-container" v-if="mode==0">
+			<div>テスト中です</div>
+		</div>
+		<div id="l-container" v-if="mode==1">
 			<!-- タイトル画面(ここから) -->
 			<div id="l-title">ITぴよクイズ</div>
 			<div id="l-piyo-logo">
@@ -39,7 +42,7 @@
 			<cmp-pwd></cmp-pwd>
 			<!-- タイトル画面(ここまで) -->
 		</div>
-		<div v-if="mode==2">
+		<div id="l-container" v-if="mode==2">
 			<!-- クイズ画面(ここから) -->
 			<div id="l-status">
 				<div id="l-left">
@@ -102,7 +105,7 @@
 			<div v-else id="l-next"></div>
 			<!-- クイズ画面(ここまで) -->
 		</div>
-		<div v-if="mode==3">
+		<div id="l-container" v-if="mode==3">
 			<!-- 結果画面(ここから) -->
 			<div id="l-status">
 				あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
@@ -121,7 +124,7 @@
 			</div>
 			<!-- 結果画面(ここまで) -->
 		</div>
-		<div v-if="mode==4">
+		<div id="l-container" v-if="mode==4">
 			<!-- 成績画面(ここから) -->
 			<div id="l-answers">
 				<table>
