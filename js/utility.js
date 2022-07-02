@@ -1,6 +1,15 @@
 console.log("utility.js!!");
 
 //==========
+// ScreenOrientation
+const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {});
+screen.orientation.lock("portrait").catch((err)=>{console.log(err);});
+
+//==========
+// ServiceWorker(If you needed...)
+navigator.serviceWorker.register("./pwa/service_worker.js");
+
+//==========
 // SpreadSheet
 
 function loadSpreadSheet(path, onLoad, onError){
