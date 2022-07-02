@@ -14,14 +14,14 @@ const SS_ID     = "1CzccPnNKqIEgTPyvq83w28H0t5ycmuhe_EBarAdy4xY";
 const SS_CSV    = "/export?format=csv";
 const SS_URL    = SS_GOOGLE + SS_ID + SS_CSV;
 
-const MODE_TEST   = 0;
-const MODE_TITLE  = 1;
-const MODE_QUIZ   = 2;
-const MODE_RESULT = 3;
-const MODE_DETAIL = 4;
+const MODE_LOADING = 0;
+const MODE_TITLE   = 1;
+const MODE_QUIZ    = 2;
+const MODE_RESULT  = 3;
+const MODE_DETAIL  = 4;
 
 const myData = {
-	mode:      null,
+	mode:      MODE_LOADING,
 	quizes:    null,
 	quiz:      null,
 	quizIndex: null,
@@ -45,7 +45,6 @@ const app = Vue.createApp({
 	created(){
 		console.log("created!!");
 		initStorage();// ストレージ
-
 		// SpreadSheet
 		loadSpreadSheet(SS_URL, arr=>{
 			this.quizes = arr;// JSONファイルからロード
