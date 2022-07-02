@@ -62,7 +62,6 @@ const app = Vue.createApp({
 		init(){
 			// リセット
 			this.mode      = MODE_TITLE;
-			this.quizes    = null;
 			this.quiz      = null;
 			this.quizIndex = 0;
 			this.answerFlg = false;
@@ -81,20 +80,6 @@ const app = Vue.createApp({
 			this.sndNG = new Howl({
 				src: "./sounds/se_ng.mp3", 
 				loop: false, volume: 1.0
-			});
-
-			// SpreadSheet
-			loadSpreadSheet(SS_URL, arr=>{
-				this.quizes = arr;// JSONファイルからロード
-				for(let quiz of this.quizes){
-					quiz.key    = quiz.exam + quiz.no;// Key
-					quiz.answer = quiz.btnA;// 答えを確定
-					quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
-				}
-				this.piyoImg = "./images/piyo_ok.png";
-				this.piyoMsg = "クイズに答えられるかな!?";
-			}, err=>{
-				console.log(err);
 			});
 		},
 		readyQuiz(){
