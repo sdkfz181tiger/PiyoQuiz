@@ -16,8 +16,6 @@
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
 	<link rel="stylesheet" href="./css/custom.css">
-
-	<script src="//imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104" async></script>
 	<!-- Title -->
 	<title>ITぴよクイズ</title>
 </head>
@@ -110,10 +108,10 @@
 		<div id="l-container" v-if="mode==3">
 			<!-- 結果画面(ここから) -->
 			<div id="l-status">
-				あたり:{{ cntOK }}問, はずれ:{{ cntNG }}問
+				あたり:{{ getCntOK() }}問, はずれ:{{ getCntNG() }}問
 			</div>
 			<div id="l-score">
-				{{ cntOK }}問正解!!
+				{{ getCntOK() }}問正解!!
 			</div>
 			<div id="l-piyo-result">
 				<img v-bind:src="piyoImg">
@@ -166,6 +164,7 @@
 			type:"banner", display:"inline",
 			elementid:"im-44312d36535c4279801e55f8fd54c60f"});
 	</script>
+	<script src="//imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104" async></script>
 </div>
 	<!-- Templates -->
 	<script type="text/x-template" id="tmp-pwd">

@@ -33,8 +33,7 @@ const myData = {
 	markBkg:   null,
 	markOK:    null,
 	markNG:    null,
-	cntOK:     null,
-	cntNG:     null,
+	results:   null,
 	sndOK:     null,
 	sndNG:     null,
 }
@@ -46,7 +45,19 @@ const app = Vue.createApp({
 	created(){
 		console.log("created!!");
 		initStorage();// ストレージ
-		this.init();// リセット
+
+		// SpreadSheet
+		loadSpreadSheet(SS_URL, arr=>{
+			this.quizes = arr;// JSONファイルからロード
+			for(let quiz of this.quizes){
+				quiz.key    = quiz.exam + quiz.no;// Key
+				quiz.answer = quiz.btnA;// 答えを確定
+				quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
+			}
+			this.init();// リセット
+		}, err=>{
+			console.log(err);
+		});
 	},
 	methods:{
 		init(){
@@ -58,13 +69,12 @@ const app = Vue.createApp({
 			this.answerFlg = false;
 			this.lifeMax   = 3;
 			this.lifeNum   = this.lifeMax;
-			this.piyoImg   = "./images/piyo_quiz.png";
-			this.piyoMsg   = "ちょっと待ってね!!";
+			this.piyoImg   = "./images/piyo_ok.png";
+			this.piyoMsg   = "クイズに答えられるかな!?";
 			this.markBkg   = "./images/mark_bkg.png";
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
-			this.cntOK     = 0;
-			this.cntNG     = 0;
+			this.results   = [];
 			this.sndOK = new Howl({
 				src: "./sounds/se_ok.mp3", 
 				loop: false, volume: 1.0
@@ -147,14 +157,14 @@ const app = Vue.createApp({
 			if(this.quiz.answer == btn){
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
-				this.cntOK++;
+				this.results.push(true);// OK
 				this.lifeNum += 0;// Life
 				this.saveReport(true);// OK
 				this.popup(true);// Popup
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
-				this.cntNG++;
+				this.results.push(false);// NG
 				this.lifeNum -= 1;// Life
 				this.saveReport(false);// NG
 				this.popup(false);// Popup
@@ -173,18 +183,20 @@ const app = Vue.createApp({
 			console.log("clickResult");
 			if(!this.quizes) return;
 			this.mode = MODE_RESULT;// 結果画面へ
-			if(this.cntOK < 10){
+			const cntOK = this.getCntOK();
+			const cntNG = this.getCntNG();
+			if(cntOK < 10){
 				this.piyoImg = "./images/piyo_pc_confuse.png";// Piyo
 				this.piyoMsg = "今日は調子が悪いピヨ!!";
-			}else if(this.cntOK < 20){
+			}else if(cntOK < 20){
 				this.piyoImg = "./images/piyo_pc_cry.png";// Piyo
 				this.piyoMsg = "もっとがんばるピヨ!!";
-			}else if(this.cntOK < 40){
+			}else if(cntOK < 40){
 				this.piyoImg = "./images/piyo_pc_night.png";// Piyo
-				this.piyoMsg = "まだまだやれるピヨ!!!!";
+				this.piyoMsg = "まだまだやれるピヨ!!";
 			}else{
 				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
-				this.piyoMsg = "とても満足ピヨ!!!!";
+				this.piyoMsg = "とても満足ピヨ!!";
 			}
 			this.loadReport();// Report
 		},
@@ -227,6 +239,20 @@ const app = Vue.createApp({
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: -10});
 				tlPiyo.to("#l-float", {duration: 0.1, ease: "power1", x: 0});
 			}
+		},
+		getCntOK(){
+			let cnt = 0;
+			for(let result of this.results){
+				if(result) cnt++;
+			}
+			return cnt;
+		},
+		getCntNG(){
+			let cnt = 0;
+			for(let result of this.results){
+				if(!result) cnt++;
+			}
+			return cnt;
 		},
 		replaceBR(str){
 			return str.replace("<br>", "");
