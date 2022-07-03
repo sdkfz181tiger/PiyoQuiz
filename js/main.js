@@ -50,23 +50,23 @@ const app = Vue.createApp({
 	},
 	created(){
 		console.log("created!!");
-		initStorage();// ストレージ
+		initStorage();// Storage
 		// SpreadSheet
 		loadSpreadSheet(SS_URL, arr=>{
-			this.quizes = arr;// JSONファイルからロード
+			this.quizes = arr;// JSON
 			for(let quiz of this.quizes){
 				quiz.key    = quiz.exam + quiz.no;// Key
-				quiz.answer = quiz.btnA;// 答えを確定
-				quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];// 配列にする
+				quiz.answer = quiz.btnA;// Answer
+				quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];
 			}
-			this.init();// リセット
+			this.init();// Initialize
 		}, err=>{
 			console.log(err);
 		});
 	},
 	methods:{
 		init(){
-			// リセット
+			// Initialize
 			this.mode      = MODE_TITLE;
 			this.quiz      = null;
 			this.quizIndex = 0;
@@ -116,18 +116,18 @@ const app = Vue.createApp({
 		},
 		readQuiz(){
 			console.log("readQuiz:", this.quizIndex);
-			// 次のクイズを読み込む
+			// Read
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
 			this.piyoMsg = "次は" + (this.quizIndex + 1) + "問目だよ!!";
 			this.quiz    = this.quizes[this.quizIndex];
-			// 2択にする
+			// Buttons
 			const btns   = this.quiz.btns;
 			const index  = Math.floor(Math.random()*(btns.length-1)) + 1;
 			for(let i=btns.length-1; 0<i; i--){
 				if(i == index) continue;
 				btns.splice(i, 1);
 			}
-			// シャッフル
+			// Shuffle
 			if(Math.random() < 0.5){
 				const tmp = btns[0];
 				btns[0] = btns[1];
@@ -143,17 +143,15 @@ const app = Vue.createApp({
 			saveStorage(this.quiz.key, flg);// Save
 		},
 		clickStart(){
-			// クイズ開始をクリック
 			console.log("clickStart");
 			if(!this.quizes) return;
-			this.mode = MODE_QUIZ;// Quiz画面へ
+			this.mode = MODE_QUIZ;// To Quiz
 			this.readyQuiz();
 		},
 		clickAnswer(btn){
-			// 答えをクリック
 			console.log("clickAnswer");
 			if(this.answerFlg == true) return;
-			this.answerFlg = true;// 答えを表示する
+			this.answerFlg = true;// Show
 			if(this.quiz.answer == btn){
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
@@ -171,18 +169,16 @@ const app = Vue.createApp({
 			}	
 		},
 		clickNext(){
-			// 次の問題へ
 			console.log("clickNext");
 			if(this.answerFlg == false) return;
-			this.answerFlg = false;// 答えを非表示に
-			this.quizIndex++;// 次の問題へ
-			this.readQuiz();// クイズを1つ読み込む
+			this.answerFlg = false;// Hide
+			this.quizIndex++;// Next
+			this.readQuiz();// Read
 		},
 		clickResult(){
-			// 結果画面へ
 			console.log("clickResult");
 			if(!this.quizes) return;
-			this.mode = MODE_RESULT;// 結果画面へ
+			this.mode = MODE_RESULT;// To Result
 			const cntOK = this.getCntOK();
 			const cntNG = this.getCntNG();
 			if(cntOK < 10){
@@ -204,14 +200,14 @@ const app = Vue.createApp({
 			// リトライ
 			console.log("clickReset");
 			if(!this.quizes) return;
-			this.mode = MODE_TITLE;// タイトル画面へ
+			this.mode = MODE_TITLE;// To Title
 			this.init();// リセット
 		},
 		clickDetail(){
 			// 成績確認
 			console.log("clickDetail");
 			if(!this.quizes) return;
-			this.mode = MODE_DETAIL;// 成績確認画面へ
+			this.mode = MODE_DETAIL;// To Detail
 			this.loadReport();// Report
 		},
 		popup(flg){
