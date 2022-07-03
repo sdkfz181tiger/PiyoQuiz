@@ -45,7 +45,11 @@ function loadStorage(quizes){
 	if(!json) return;
 	const obj = JSON.parse(json);
 	for(let quiz of quizes){
-		if(!obj[quiz.key]) continue;
+		if(!obj[quiz.key]){
+			quiz["ok"] = 0;
+			quiz["ng"] = 0;
+			continue;
+		}
 		quiz["ok"] = obj[quiz.key]["ok"];
 		quiz["ng"] = obj[quiz.key]["ng"];
 	}

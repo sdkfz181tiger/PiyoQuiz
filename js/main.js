@@ -89,22 +89,32 @@ const app = Vue.createApp({
 			});
 		},
 		readyQuiz(){
-			// クイズを準備する
-			this.shuffleQuiz();// クイズをシャッフル
-			this.readQuiz();// クイズを1つ読み込む
+			// Ready
 			this.loadReport();// Report
+			this.shuffleQuiz();// Shuffle
+			this.readQuiz();// Read
 		},
 		shuffleQuiz(){
-			// クイズをシャッフル
+			// Shuffle
 			for(let i=this.quizes.length-1; 0<=i; i--){
 				const rdm = Math.floor(Math.random() * i);
 				const tmp = this.quizes[rdm];
 				this.quizes[rdm] = this.quizes[i];
 				this.quizes[i] = tmp;
 			}
+			// Sort
+			this.quizes.sort((a, b)=>{
+				const cntA = a.ok + a.ng;
+				const cntB = b.ok + b.ng;
+				if(cntA == cntB) return 0;
+				if(cntA < cntB) return -1;
+				return 1;
+			});
+			for(let quiz of this.quizes){
+				console.log(quiz.answer, quiz.ok, quiz.ng);
+			}
 		},
 		readQuiz(){
-			// 終了判定
 			console.log("readQuiz:", this.quizIndex);
 			// 次のクイズを読み込む
 			this.piyoImg = "./images/piyo_quiz.png";// Piyo
