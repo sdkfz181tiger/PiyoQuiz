@@ -14,7 +14,7 @@
 		"sizes":"512x512",
 		"type": "image/png"
 	}],
-	"scope": ".",
+	"scope": "./",
 	"start_url": "../",
 	"display": "standalone",
 	"background_color": "khaki",
