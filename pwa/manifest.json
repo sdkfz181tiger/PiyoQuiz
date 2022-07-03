@@ -14,7 +14,7 @@
 		"sizes":"512x512",
 		"type": "image/png"
 	}],
-	"start_url": "https://sdkfz181tiger.github.io/PiyoQuiz/",
+	"start_url": "https://sdkfz181tiger.github.io/PiyoQuiz",
 	"display": "standalone",
 	"background_color": "khaki",
 	"theme_color": "orange",
