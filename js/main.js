@@ -2,8 +2,8 @@ console.log("main.js!!");
 
 //==========
 // ScreenOrientation
-// const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {});
-// screen.orientation.lock("portrait").catch((err)=>{console.log(err);});
+const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {});
+screen.orientation.lock("portrait").catch((err)=>{console.log(err);});
 
 //==========
 // ServiceWorker(If you needed...)

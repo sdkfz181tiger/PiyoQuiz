@@ -14,8 +14,9 @@
 		"sizes":"512x512",
 		"type": "image/png"
 	}],
+	"scope": ".",
 	"start_url": "../index.html",
-	"display": "fullscreen",
+	"display": "standalone",
 	"background_color": "khaki",
 	"theme_color": "orange",
 	"orientation": "portrait"
