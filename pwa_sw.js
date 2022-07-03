@@ -1,5 +1,6 @@
 //==========
 // ServiceWorker
+console.log("Hello ServiceWorker!!");
 
 const CACHE_VERSION = "cache_1.0.0";
 const CACHE_FILES = [
