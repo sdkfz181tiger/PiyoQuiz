@@ -5,6 +5,8 @@ console.log("main.js!!");
 const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {});
 screen.orientation.lock("portrait").catch((err)=>{console.log(err);});
 
+window.screen.lockOrientation("portrait");
+
 //==========
 // ServiceWorker(If you needed...)
 navigator.serviceWorker.register("./pwa/service_worker.js");
