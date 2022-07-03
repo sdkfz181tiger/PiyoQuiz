@@ -183,16 +183,12 @@ const app = Vue.createApp({
 			const cntNG = this.getCntNG();
 			if(cntOK < 10){
 				this.piyoImg = "./images/piyo_pc_confuse.png";// Piyo
-				this.piyoMsg = "今日は調子が悪いピヨ!!";
 			}else if(cntOK < 20){
 				this.piyoImg = "./images/piyo_pc_cry.png";// Piyo
-				this.piyoMsg = "もっとがんばるピヨ!!";
 			}else if(cntOK < 40){
 				this.piyoImg = "./images/piyo_pc_night.png";// Piyo
-				this.piyoMsg = "まだまだやれるピヨ!!";
 			}else{
 				this.piyoImg = "./images/piyo_pc_wink.png";// Piyo
-				this.piyoMsg = "とても満足ピヨ!!";
 			}
 			this.loadReport();// Report
 		},
