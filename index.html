@@ -26,7 +26,7 @@
 			<!-- ローディング画面 -->
 			<div>Loading...</div>
 		</div>
-		<div id="l-container-auto" v-if="mode==1">
+		<div id="l-container-center" v-if="mode==1">
 			<!-- タイトル画面(ここから) -->
 			<div id="l-title">ITぴよクイズ</div>
 			<div id="l-piyo-logo">
@@ -107,7 +107,7 @@
 			<div v-else id="l-next"></div>
 			<!-- クイズ画面(ここまで) -->
 		</div>
-		<div id="l-container-auto" v-if="mode==3">
+		<div id="l-container-fill" v-if="mode==3">
 			<!-- 結果画面(ここから) -->
 			<div id="l-status">
 				あたり:{{ getCntOK() }}問, はずれ:{{ getCntNG() }}問
@@ -118,11 +118,21 @@
 			<div id="l-piyo-result">
 				<img v-bind:src="piyoImg">
 			</div>
-			<div id="l-piyo-msg">
-				{{ piyoMsg }}
+			<div id="l-results">
+				<table>
+					<tr>
+						<th>試験</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
+					</tr>
+					<tr v-for="quiz of quizes">
+						<td>{{ quiz.exam }}</td>
+						<td id="l-text">{{ replaceBR(quiz.answer) }}</td>
+						<td>{{ quiz.ok }}</td>
+						<td>{{ quiz.ng }}</td>
+					</tr>
+				</table>
 			</div>
 			<div id="l-modes">
-				<button v-on:click="clickDetail">成績を確認</button>
+				<button v-on:click="clickRetry">タイトルに戻る</button>
 			</div>
 			<!-- 結果画面(ここまで) -->
 		</div>
@@ -136,7 +146,7 @@
 					Right
 				</div>
 			</div>
-			<div id="l-answers">
+			<div id="l-details">
 				<table>
 					<tr>
 						<th>試験</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
