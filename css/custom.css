@@ -18,7 +18,7 @@ body{
 	display: flex; justify-content: center; align-items: center;
 }
 
-#l-container-auto{
+#l-container-center{
 	width: 95%; height: auto;
 	margin: 0px; padding: 0px;
 }
