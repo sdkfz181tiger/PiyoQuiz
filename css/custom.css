@@ -18,8 +18,13 @@ body{
 	display: flex; justify-content: center; align-items: center;
 }
 
-#l-container{
+#l-container-auto{
 	width: 95%; height: auto;
+	margin: 0px; padding: 0px;
+}
+
+#l-container-fill{
+	width: 95%; height: 100%;
 	margin: 0px; padding: 0px;
 }
 
@@ -38,7 +43,7 @@ body{
 
 #l-status{
 	width: 100%; height: auto;
-	margin: 0px auto 0px auto;
+	margin: 10px auto 0px auto;
 	font-size: 1.0em; font-weight: normal;
 	display: flex;
 }
@@ -56,7 +61,7 @@ body{
 }
 
 #l-quiz{
-	width: auto; min-height: 120px;
+	width: auto; height: calc(100% - 420px);
 	margin: 10px auto 20px auto; padding: 10px;
 	font-size: 1.2em; font-weight: normal; text-align: left;
 	border: 0; border-radius: 14px;
@@ -195,7 +200,7 @@ body{
 }
 
 #l-answers{
-	width: 100%; height: 360px;
+	width: 100%; height: calc(100% - 140px);
 	margin: 10px auto 0px auto; padding: 0px;
 	border: 0; border-radius: 8px;
 	overflow-y: scroll;
