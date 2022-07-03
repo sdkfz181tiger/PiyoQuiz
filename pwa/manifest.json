@@ -15,7 +15,7 @@
 		"type": "image/png"
 	}],
 	"scope": ".",
-	"start_url": "../",
+	"start_url": ".",
 	"display": "standalone",
 	"background_color": "khaki",
 	"theme_color": "orange",
