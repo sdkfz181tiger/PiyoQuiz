@@ -70,7 +70,7 @@ body{
 }
 
 #l-quiz p{
-	margin: 0px; padding: 0px;
+	margin: 0px; padding: 10px;
 	position: absolute; top: 50%;
 	transform: translate(0px, -50%);
 }
