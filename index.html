@@ -121,10 +121,12 @@
 			<div id="l-results">
 				<table>
 					<tr>
-						<th>試験</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
+						<th>解答</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
 					</tr>
 					<tr v-for="result of getResults()">
-						<td>{{ result.exam }}</td>
+						<td>
+							<img v-bind:src="result.mark"/>
+						</td>
 						<td id="l-text">{{ replaceBR(result.answer) }}</td>
 						<td>{{ result.ok }}</td>
 						<td>{{ result.ng }}</td>

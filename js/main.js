@@ -248,7 +248,15 @@ const app = Vue.createApp({
 		},
 		getResults(){
 			const results = this.quizes.filter((quiz, index)=>{
-				return index < this.scores.length;
+				if(index < this.scores.length){
+					if(this.scores[index]){
+						quiz.mark = "./images/mark_ok.png";
+					}else{
+						quiz.mark = "./images/mark_ng.png";
+					}
+					return true;
+				}
+				return false;
 			});
 			return results;
 		},

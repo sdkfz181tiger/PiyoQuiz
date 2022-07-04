@@ -240,6 +240,10 @@ body{
 	text-align: left;
 }
 
+#l-results table img{
+	width: 30px; height: auto;
+}
+
 /* Details */
 
 #l-details{
