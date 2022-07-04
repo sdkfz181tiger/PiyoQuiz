@@ -69,6 +69,12 @@ body{
 	position: relative; overflow-y: hidden;
 }
 
+#l-quiz p{
+	margin: 0px; padding: 0px;
+	position: absolute; top: 50%;
+	transform: translate(0px, -50%);
+}
+
 #l-popup-ok{
 	width: auto; height: auto;
 	position: absolute; top: 55%; left: 50%;
