@@ -39,7 +39,7 @@ const myData = {
 	markBkg:   null,
 	markOK:    null,
 	markNG:    null,
-	results:   null,
+	scores:    null,
 	sndOK:     null,
 	sndNG:     null,
 }
@@ -78,7 +78,7 @@ const app = Vue.createApp({
 			this.markBkg   = "./images/mark_bkg.png";
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
-			this.results   = [];
+			this.scores    = [];
 			this.sndOK = new Howl({
 				src: "./sounds/se_ok.mp3", 
 				loop: false, volume: 1.0
@@ -155,14 +155,14 @@ const app = Vue.createApp({
 			if(this.quiz.answer == btn){
 				this.piyoImg = "./images/piyo_ok.png";// OK
 				this.piyoMsg = "あたり!!";
-				this.results.push(true);// OK
+				this.scores.push(true);// OK
 				this.lifeNum += 0;// Life
 				this.saveReport(true);// OK
 				this.popup(true);// Popup
 			}else{
 				this.piyoImg = "./images/piyo_ng.png";// NG
 				this.piyoMsg = "はずれ!!";
-				this.results.push(false);// NG
+				this.scores.push(false);// NG
 				this.lifeNum -= 1;// Life
 				this.saveReport(false);// NG
 				this.popup(false);// Popup
@@ -234,17 +234,23 @@ const app = Vue.createApp({
 		},
 		getCntOK(){
 			let cnt = 0;
-			for(let result of this.results){
-				if(result) cnt++;
+			for(let score of this.scores){
+				if(score) cnt++;
 			}
 			return cnt;
 		},
 		getCntNG(){
 			let cnt = 0;
-			for(let result of this.results){
-				if(!result) cnt++;
+			for(let score of this.scores){
+				if(!score) cnt++;
 			}
 			return cnt;
+		},
+		getResults(){
+			const results = this.quizes.filter((quiz, index)=>{
+				return index < this.scores.length;
+			});
+			return results;
 		},
 		replaceBR(str){
 			return str.replace("<br>", "");
