@@ -236,7 +236,7 @@ body{
 }
 
 #l-results table #l-mid{
-	width: 60%; height: auto;
+	width: 50%; height: auto;
 }
 
 #l-results table #l-text{
@@ -280,7 +280,7 @@ body{
 }
 
 #l-details table #l-mid{
-	width: 60%; height: auto;
+	width: 50%; height: auto;
 }
 
 #l-details table #l-text{
