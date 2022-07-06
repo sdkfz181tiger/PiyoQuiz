@@ -235,11 +235,11 @@ body{
 }
 
 #l-results table th{
-	width: 15%; height: auto;
+	width: 20%; height: auto;
 }
 
 #l-results table #l-mid{
-	width: 45%; height: auto;
+	width: 40%; height: auto;
 }
 
 #l-results table #l-text{
@@ -280,11 +280,11 @@ body{
 }
 
 #l-details table th{
-	width: 15%; height: auto;
+	width: 20%; height: auto;
 }
 
 #l-details table #l-mid{
-	width: 45%; height: auto;
+	width: 40%; height: auto;
 }
 
 #l-details table #l-text{
