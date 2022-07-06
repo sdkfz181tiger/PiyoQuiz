@@ -226,7 +226,7 @@ body{
 
 #l-results table td{
 	width: auto; height: auto;
-	margin: 0px; padding: 10px 5px;
+	margin: 0px; padding: 0px 5px;
 	text-align: center; text-overflow: ellipsis;
 	overflow: hidden; white-space: nowrap;
 }
@@ -270,7 +270,7 @@ body{
 
 #l-details table td{
 	width: auto; height: auto;
-	margin: 0px; padding: 10px 5px;
+	margin: 0px; padding: 0px 5px;
 	text-align: center; text-overflow: ellipsis;
 	overflow: hidden; white-space: nowrap;
 }

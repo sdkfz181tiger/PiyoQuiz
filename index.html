@@ -127,7 +127,7 @@
 					<tr v-for="result of getResults()">
 						<td><img v-bind:src="result.mark"/></td>
 						<td id="l-text">{{ replaceBR(result.answer) }}</td>
-						<td><button v-on:click="clickCheck(quiz.answer, quiz.text)">確認</button></td>
+						<td><button v-on:click="clickCheck(result.answer, result.text)">確認</button></td>
 					</tr>
 				</table>
 			</div>
