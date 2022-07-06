@@ -55,7 +55,7 @@ const app = Vue.createApp({
 		loadSpreadSheet(SS_URL, arr=>{
 			this.quizes = arr;// JSON
 			for(let quiz of this.quizes){
-				quiz.key    = quiz.exam + quiz.no;// Key
+				quiz.key    = quiz.btnA;// Key
 				quiz.answer = quiz.btnA;// Answer
 				quiz.btns   = [quiz.btnA, quiz.btnB, quiz.btnC, quiz.btnD];
 			}
