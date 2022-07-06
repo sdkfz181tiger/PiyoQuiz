@@ -16,6 +16,7 @@
 	<link rel="shortcut icon" href="./pwa/favicon.ico">
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.css">
 	<link rel="stylesheet" href="./css/custom.css">
 	<!-- Title -->
 	<title>ITぴよクイズ</title>
@@ -121,13 +122,13 @@
 			<div id="l-results">
 				<table>
 					<tr>
-						<th>解答</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
+						<th>解答</th><th id="l-mid">単語</th><th>o / x</th><th>確認</th>
 					</tr>
 					<tr v-for="result of getResults()">
 						<td><img v-bind:src="result.mark"/></td>
 						<td id="l-text">{{ replaceBR(result.answer) }}</td>
-						<td>{{ result.ok }}</td>
-						<td>{{ result.ng }}</td>
+						<td>{{ quiz.ok }} / {{ quiz.ng }}</td>
+						<td><button v-on:click="clickCheck(quiz.answer, quiz.text)">確認</button></td>
 					</tr>
 				</table>
 			</div>
@@ -149,13 +150,12 @@
 			<div id="l-details">
 				<table>
 					<tr>
-						<th>試験</th><th id="l-mid">単語</th><th>あたり</th><th>はずれ</th>
+						<th id="l-mid">単語</th><th>o / x</th><th>確認</th>
 					</tr>
 					<tr v-for="quiz of quizes">
-						<td>{{ quiz.exam }}</td>
 						<td id="l-text">{{ replaceBR(quiz.answer) }}</td>
-						<td>{{ quiz.ok }}</td>
-						<td>{{ quiz.ng }}</td>
+						<td>{{ quiz.ok }} / {{ quiz.ng }}</td>
+						<td><button v-on:click="clickCheck(quiz.answer, quiz.text)">確認</button></td>
 					</tr>
 				</table>
 			</div>
@@ -186,6 +186,7 @@
 	<script src="//cdn.jsdelivr.net/npm/gsap@3.10.4/dist/gsap.min.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+	<script src="//cdn.jsdelivr.net/gh/xxjapp/xdialog@3/xdialog.min.js"></script>
 	<script src="//unpkg.com/vue@next"></script>
 	<script src="./js/utility.js"></script>
 	<script src="./js/main.js"></script>

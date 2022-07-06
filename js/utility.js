@@ -68,3 +68,21 @@ function saveStorage(key, flg){
 	}
 	localStorage.setItem("report", JSON.stringify(obj));
 }
+
+//==========
+// Dialog
+
+function showDialog(title, text){
+	// X-Dialog
+	xdialog.open({
+		title: title,
+		buttons: {
+			ok: {
+				text: "ok",
+				style: "border-radius: 8px; background: orange;"
+			}
+		},
+		body: text,
+		style: "width: 90%; height: auto;"
+	});
+}

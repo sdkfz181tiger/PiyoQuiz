@@ -206,6 +206,11 @@ const app = Vue.createApp({
 			this.mode = MODE_DETAIL;// To Detail
 			this.loadReport();// Report
 		},
+		clickCheck(title, text){
+			// 解答確認
+			console.log("clickCheck");
+			showDialog(this.replaceBR(title), text);// Dialog
+		},
 		popup(flg){
 			// GSAP
 			if(flg){
@@ -261,7 +266,7 @@ const app = Vue.createApp({
 			return results;
 		},
 		replaceBR(str){
-			return str.replace("<br>", "");
+			return str.replaceAll("<br>", "");
 		}
 	}
 });

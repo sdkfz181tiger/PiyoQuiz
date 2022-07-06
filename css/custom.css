@@ -300,7 +300,7 @@ body{
 
 button{
 	min-width: 50%; height: auto;
-	margin: 4px; padding: 12px 0px;
+	margin: 4px; padding: 12px 8px;
 	appearance: none;
 	font-size: 1.2em; font-weight: bold;
 	border: 0; border-radius: 8px;
