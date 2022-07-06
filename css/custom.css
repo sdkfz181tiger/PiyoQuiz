@@ -7,7 +7,7 @@ html, body, #app{
 
 body{
 	font-feature-settings: "palt";
-	font-family: "M PLUS 1p"; line-height: 1.5; 
+	font-family: "M PLUS 1p"; line-height: 1.5;
 	text-align: center; background: moccasin; 
 	background-image: url("../images/background.png");
 }
