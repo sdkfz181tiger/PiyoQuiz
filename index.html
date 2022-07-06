@@ -122,12 +122,11 @@
 			<div id="l-results">
 				<table>
 					<tr>
-						<th>解答</th><th id="l-mid">単語</th><th>o / x</th><th>確認</th>
+						<th>解答</th><th id="l-mid">単語</th><th>確認</th>
 					</tr>
 					<tr v-for="result of getResults()">
 						<td><img v-bind:src="result.mark"/></td>
 						<td id="l-text">{{ replaceBR(result.answer) }}</td>
-						<td>{{ quiz.ok }} / {{ quiz.ng }}</td>
 						<td><button v-on:click="clickCheck(quiz.answer, quiz.text)">確認</button></td>
 					</tr>
 				</table>
@@ -150,12 +149,11 @@
 			<div id="l-details">
 				<table>
 					<tr>
-						<th>判定</th><th id="l-mid">単語</th><th>o / x</th><th>確認</th>
+						<th>判定</th><th id="l-mid">単語</th><th>確認</th>
 					</tr>
 					<tr v-for="quiz of quizes">
-						<td>*</td>
-						<td id="l-text">{{ replaceBR(quiz.answer) }}</td>
 						<td>{{ quiz.ok }} / {{ quiz.ng }}</td>
+						<td id="l-text">{{ replaceBR(quiz.answer) }}</td>
 						<td><button v-on:click="clickCheck(quiz.answer, quiz.text)">確認</button></td>
 					</tr>
 				</table>
