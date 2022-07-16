@@ -202,7 +202,7 @@ const app = Vue.createApp({
 				const cntA = a.ok + a.ng;
 				const cntB = b.ok + b.ng;
 				if(cntA == cntB) return 0;
-				if(cntB < cntA) return -1;
+				if(cntA < cntB) return -1;
 				return 1;
 			});
 		},
@@ -224,7 +224,7 @@ const app = Vue.createApp({
 				const cntA = a.ok + a.ng;
 				const cntB = b.ok + b.ng;
 				if(cntA == cntB) return 0;
-				if(cntB < cntA) return -1;
+				if(cntA < cntB) return -1;
 				return 1;
 			});
 		},
