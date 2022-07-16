@@ -150,7 +150,8 @@
 						<th>判定</th><th id="l-mid">単語</th><th id="l-small">確認</th>
 					</tr>
 					<tr v-for="detail of details">
-						<td>{{ detail.ok }} / {{ detail.ng }}</td>
+						<td v-if="detail.ng<=detail.ok"><img src="./images/i_good.png"></td>
+						<td v-else><img src="./images/i_bad.png"></td>
 						<td id="l-text">{{ replaceBR(detail.answer) }}</td>
 						<td><button v-on:click="clickCheck(detail.answer, detail.text)">確認</button></td>
 					</tr>

@@ -329,6 +329,10 @@ button:hover{
 	text-align: left;
 }
 
+#l-details table img{
+	width: 30px; height: auto;
+}
+
 #l-banner{
 	width: 100%; height: 60px;
 	margin: 0px; padding: 0px;
