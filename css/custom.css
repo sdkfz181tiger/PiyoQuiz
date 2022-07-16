@@ -13,6 +13,20 @@ body{
 	background-image: url("../images/background.png");
 }
 
+button{
+	min-width: 50%; height: auto;
+	margin: 4px; padding: 12px 8px;
+	appearance: none;
+	font-size: 1.2em; font-weight: bold;
+	border: 0; border-radius: 8px;
+	background: darkorange; color: white;
+	white-space: pre-line; word-wrap:break-word;
+}
+
+button:hover{
+	background: orange;
+}
+
 #app{
 	width: 100%; height: calc(100% - 60px);
 	margin: 0px; padding: 0px;
@@ -49,15 +63,35 @@ body{
 }
 
 #l-status #l-left{
-	width: 30%; height: auto;
+	width: 70%; height: auto;
 	margin: 0px; padding: 0px 5px;
-	text-align: left;
+	text-align: left; display:flex;
 }
 
 #l-status #l-right{
-	width: 70%; height: auto;
+	width: auto; height: auto;
 	margin: 0px; padding: 0px 5px;
-	text-align: right;
+	text-align: right; display:flex;
+}
+
+#l-status #l-good{
+	min-width: 60px; min-height: auto;
+	margin: 4px; padding: 5px 10px;
+	background: royalblue;
+}
+
+#l-status #l-good:hover{
+	background: cornflowerblue;
+}
+
+#l-status #l-bad{
+	min-width: 60px; min-height: auto;
+	margin: 4px; padding: 5px 10px;
+	background: firebrick;
+}
+
+#l-status #l-bad:hover{
+	background: tomato;
 }
 
 #l-quiz{
@@ -236,7 +270,11 @@ body{
 }
 
 #l-results table #l-mid{
-	width: 50%; height: auto;
+	width: 65%; height: auto;
+}
+
+#l-results table #l-small{
+	width: 20%; height: auto;
 }
 
 #l-results table #l-text{
@@ -250,7 +288,7 @@ body{
 /* Details */
 
 #l-details{
-	width: 100%; height: calc(100% - 140px);
+	width: 100%; height: calc(100% - 160px);
 	margin: 10px auto 0px auto; padding: 0px;
 	border: 0; border-radius: 8px;
 	overflow-y: scroll;
@@ -280,7 +318,11 @@ body{
 }
 
 #l-details table #l-mid{
-	width: 50%; height: auto;
+	width: 65%; height: auto;
+}
+
+#l-details table #l-small{
+	width: 20%; height: auto;
 }
 
 #l-details table #l-text{
@@ -292,20 +334,6 @@ body{
 	margin: 0px; padding: 0px;
 	position: fixed; bottom: 0px;
 	/*background: orange;*/
-}
-
-button{
-	min-width: 50%; height: auto;
-	margin: 4px; padding: 12px 8px;
-	appearance: none;
-	font-size: 1.2em; font-weight: bold;
-	border: 0; border-radius: 8px;
-	background: darkorange; color: white;
-	white-space: pre-line; word-wrap:break-word;
-}
-
-button:hover{
-	background: orange;
 }
 
 .red{

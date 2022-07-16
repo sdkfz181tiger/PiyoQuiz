@@ -1,17 +1,6 @@
 console.log("main.js!!");
 
 //==========
-// ScreenOrientation
-// const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {});
-// screen.orientation.lock("portrait").catch((err)=>{console.log(err);});
-
-// try{
-// 	window.screen.lockOrientation("portrait");
-// }catch(err){
-// 	console.log(err);
-// }
-
-//==========
 // ServiceWorker
 navigator.serviceWorker.register("./pwa_sw.js");
 
@@ -40,6 +29,7 @@ const myData = {
 	markOK:    null,
 	markNG:    null,
 	scores:    null,
+	details:   null,
 	sndOK:     null,
 	sndNG:     null,
 }
@@ -79,6 +69,7 @@ const app = Vue.createApp({
 			this.markOK    = "./images/mark_ok.png";
 			this.markNG    = "./images/mark_ng.png";
 			this.scores    = [];
+			this.details   = [];
 			this.sndOK = new Howl({
 				src: "./sounds/se_ok.mp3", 
 				loop: false, volume: 1.0
@@ -110,9 +101,6 @@ const app = Vue.createApp({
 				if(cntA < cntB) return -1;
 				return 1;
 			});
-			for(let quiz of this.quizes){
-				console.log(quiz.answer, quiz.ok, quiz.ng);
-			}
 		},
 		readQuiz(){
 			console.log("readQuiz:", this.quizIndex);
@@ -205,6 +193,40 @@ const app = Vue.createApp({
 			if(!this.quizes) return;
 			this.mode = MODE_DETAIL;// To Detail
 			this.loadReport();// Report
+			// Filter
+			this.details = this.quizes.filter((quiz)=>{
+				return 0<quiz.ok || 0<quiz.ng;
+			});
+			// Sort
+			this.details.sort((a, b)=>{
+				const cntA = a.ok + a.ng;
+				const cntB = b.ok + b.ng;
+				if(cntA == cntB) return 0;
+				if(cntB < cntA) return -1;
+				return 1;
+			});
+		},
+		clickDetailFilter(flg){
+			// フィルタ
+			console.log("clickDetailFilter");
+			// Filter
+			if(flg){
+				this.details = this.quizes.filter((quiz)=>{
+					return quiz.ng < quiz.ok;
+				});
+			}else{
+				this.details = this.quizes.filter((quiz)=>{
+					return quiz.ok < quiz.ng;
+				});
+			}
+			// Sort
+			this.details.sort((a, b)=>{
+				const cntA = a.ok + a.ng;
+				const cntB = b.ok + b.ng;
+				if(cntA == cntB) return 0;
+				if(cntB < cntA) return -1;
+				return 1;
+			});
 		},
 		clickCheck(title, text){
 			// 解答確認
