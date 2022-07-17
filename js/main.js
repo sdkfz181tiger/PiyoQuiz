@@ -206,6 +206,12 @@ const app = Vue.createApp({
 				return 1;
 			});
 		},
+		clickDetailAll(){
+			// フィルタ
+			console.log("clickDetailAll");
+			// All
+			this.details = this.quizes;
+		},
 		clickDetailFilter(flg){
 			// フィルタ
 			console.log("clickDetailFilter");

@@ -74,6 +74,16 @@ button:hover{
 	text-align: right;
 }
 
+#l-status #l-all{
+	min-width: 60px; min-height: auto;
+	margin: 4px; padding: 5px 10px;
+	background: darkorange;
+}
+
+#l-status #l-all:hover{
+	background: orange;
+}
+
 #l-status #l-good{
 	min-width: 60px; min-height: auto;
 	margin: 4px; padding: 5px 10px;

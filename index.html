@@ -140,8 +140,9 @@
 			<!-- 成績画面(ここから) -->
 			<div id="l-status">
 				<div id="l-left">
+					<button id="l-all"  v-on:click="clickDetailAll">全て</button>
 					<button id="l-good" v-on:click="clickDetailFilter(true)">得意</button>
-					<button id="l-bad" v-on:click="clickDetailFilter(false)">苦手</button>
+					<button id="l-bad"  v-on:click="clickDetailFilter(false)">苦手</button>
 				</div>
 			</div>
 			<div id="l-details">
