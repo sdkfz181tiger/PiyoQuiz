@@ -252,8 +252,10 @@ const app = Vue.createApp({
 		clickDetailAll(){
 			// Filter
 			console.log("clickDetailAll");
-			// All
-			this.details = this.quizes;
+			// Filter
+			this.details = this.quizes.filter((quiz)=>{
+				return 0<quiz.ok || 0<quiz.ng;
+			});
 		},
 		clickDetailFilter(flg){
 			// Filter
