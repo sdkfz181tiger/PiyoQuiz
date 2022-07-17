@@ -130,6 +130,48 @@ const app = Vue.createApp({
 			if(!this.quiz) return;
 			saveStorage(this.quiz.key, flg);// Save
 		},
+		loadChart(){
+			// Chart
+			setTimeout(()=>{
+				const ctx = document.getElementById("my-chart").getContext("2d");
+				const myChart = new Chart(ctx, {
+					type: "bar",// グラフの種類
+					data: {
+						labels: ["セキュリティ", "テクノロジ", "マネジメント", "ネットワーク", "経営/会計", "法律/監査"],// ラベル
+						datasets: [{
+							label: "ジャンル別解答数",// タイトル
+							data: [20, 14, 32, 5, 10, 16],// データ
+							backgroundColor: [
+								"rgba(255, 100, 100, 0.2)",// 背景の色
+								"rgba(100, 255, 100, 0.2)",
+								"rgba(100, 100, 255, 0.2)",
+								"rgba(255, 255, 100, 0.2)",
+								"rgba(100, 255, 255, 0.2)",
+								"rgba(255, 100, 255, 0.2)"
+							],
+							borderColor: [
+								"rgba(255, 100, 100, 1)",// 枠線の色
+								"rgba(100, 255, 100, 1)",
+								"rgba(100, 100, 255, 1)",
+								"rgba(255, 255, 100, 1)",
+								"rgba(100, 255, 255, 1)",
+								"rgba(255, 100, 255, 1)"
+							],
+							borderWidth: 1// 枠線の太さ
+						}]
+					},
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						}
+					}
+				});
+			}, 300);
+		},
 		clickStart(){
 			console.log("clickStart");
 			if(!this.quizes) return;
@@ -181,18 +223,19 @@ const app = Vue.createApp({
 			this.loadReport();// Report
 		},
 		clickRetry(){
-			// リトライ
+			// Retry
 			console.log("clickReset");
 			if(!this.quizes) return;
 			this.mode = MODE_TITLE;// To Title
-			this.init();// リセット
+			this.init();// Reset
 		},
 		clickDetail(){
-			// 成績確認
+			// Detail
 			console.log("clickDetail");
 			if(!this.quizes) return;
 			this.mode = MODE_DETAIL;// To Detail
 			this.loadReport();// Report
+			this.loadChart();// Chart
 			// Filter
 			this.details = this.quizes.filter((quiz)=>{
 				return 0<quiz.ok || 0<quiz.ng;
@@ -207,13 +250,13 @@ const app = Vue.createApp({
 			});
 		},
 		clickDetailAll(){
-			// フィルタ
+			// Filter
 			console.log("clickDetailAll");
 			// All
 			this.details = this.quizes;
 		},
 		clickDetailFilter(flg){
-			// フィルタ
+			// Filter
 			console.log("clickDetailFilter");
 			// Filter
 			if(flg){
@@ -235,7 +278,7 @@ const app = Vue.createApp({
 			});
 		},
 		clickCheck(title, text){
-			// 解答確認
+			// Dialog
 			console.log("clickCheck");
 			showDialog(this.replaceBR(title), text);// Dialog
 		},
