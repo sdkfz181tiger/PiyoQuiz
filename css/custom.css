@@ -295,10 +295,18 @@ button:hover{
 	width: 30px; height: auto;
 }
 
+/* Chart */
+
+#l-chart{
+	width: 100%; height: auto;
+	margin: 10px auto 0px auto; padding: 0px;
+	background: ivory;
+}
+
 /* Details */
 
 #l-details{
-	width: 100%; height: calc(100% - 160px);
+	width: 100%; height: calc(100% - 270px);
 	margin: 10px auto 0px auto; padding: 0px;
 	border: 0; border-radius: 8px;
 	overflow-y: scroll;
